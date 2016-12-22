@@ -7,7 +7,7 @@
 ## About
 After upgrading to iOS 10, Apple's Music.app changed too much for me. The new version of the app gives more importance to the social media than to music.
 
-I have never made any program in iOS, so this is my oportunity to learn how to code in Swift.
+I have never made any program in iOS, so this is my opportunity to learn how to code in Swift.
 
 My intention is to create a replacement for the original Music.app, to be more like the one that come with  iOS 9 and before.
 
@@ -20,7 +20,7 @@ The source code is into **source** folder ;-)
 * Xcode 8.0+
 
 ## TO DO
- * Basic funcionallity, like iOS 6
+ * Basic functionality, like iOS 6
  * Coverflow? (can be a good feature)
  * Storage
 
