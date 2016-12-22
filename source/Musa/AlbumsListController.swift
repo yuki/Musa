@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  AlbumsListController.swift
 //  Musa
 //
 //  Created by Rubén Gómez Olivencia

@@ -16,6 +16,7 @@ import MediaPlayer
 
 class Musa {
     var albums = [MPMediaItem]()
+    var songs = [MPMediaItem]()
 
 
     init() {
@@ -25,6 +26,11 @@ class Musa {
             //album.representativeItem?.artwork.image
             self.albums.append(album.representativeItem!)
         }
-        //imageV.image = i.albums[0].artwork?.image(at: imageV.intrinsicContentSize)
+        let qrySongs = MPMediaQuery.songs()
+        for song in qrySongs.collections!{
+            //album.representativeItem?.artwork.image
+            self.songs.append(song.representativeItem!)
+        }
+        
     }
 }
