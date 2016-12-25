@@ -15,29 +15,29 @@ import UIKit
 import MediaPlayer
 
 class PlayerController: UIViewController {
-    
-    private var _songInfo = MPMediaItem()
-    var songInfo: MPMediaItem {
-        get {
-            return _songInfo
-        } set {
-            _songInfo = newValue
-        }
-    }
-    
-    func getNowPlayingItem() {
-        songImage.image = musicPlayer.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
-        songName.text = (musicPlayer.nowPlayingItem?.title != nil) ? musicPlayer.nowPlayingItem?.title : ""
-        groupName.text = (musicPlayer.nowPlayingItem?.artist != nil) ? musicPlayer.nowPlayingItem?.artist : ""
-    }
-    
     @IBOutlet weak var songImage: UIImageView!
+    @IBOutlet weak var progressSlider: UISlider!
+    @IBOutlet weak var songCurrentTime: UILabel!
+    @IBOutlet weak var songTotalTime: UILabel!
     @IBOutlet weak var songName: UILabel!
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var volumeBar: UISlider!
+    
+    
     var musicPlayer = MPMusicPlayerController.systemMusicPlayer()
-    //var musicCollection = MPMediaItemCollection.init()
-
+    var songInfo = MPMediaItem()
+    var musicQuery = MPMediaQuery()
+    var musicIndex: Int = 0
+    //var indexPath: Int = 0
+    
+    
+    @IBAction func changeProgresBar(_ sender: UISlider) {
+        musicPlayer.currentPlaybackTime = TimeInterval(progressSlider.value)
+    }
+    
     @IBAction func pressPlayButton(_ sender: UIButton) {
         if musicPlayer.playbackState == MPMusicPlaybackState.playing {
             musicPlayer.pause()
@@ -49,35 +49,71 @@ class PlayerController: UIViewController {
         }
     }
     
-    @IBOutlet weak var prevButton: UIButton!
     @IBAction func pressPrevButton(_ sender: UIButton) {
         musicPlayer.skipToPreviousItem()
-        
         getNowPlayingItem()
     }
-
-    @IBOutlet weak var nextButton: UIButton!
+    
     @IBAction func pressNextButton(_ sender: UIButton) {
         musicPlayer.skipToNextItem()
-        
         getNowPlayingItem()
     }
+    
+    
+    //FIXME: refactor this function
+    // the time updates in freak mode :/
+    func toMinutes(time: TimeInterval) -> String{
+        let seconds = Int(time)
+        if seconds < 60 {
+            if seconds < 10 {
+                return "0:0\(seconds)"
+            }
+            return "0:\(seconds)"
+        } else {
+            let minutes = Int(time) / 60
+            let rest_seconds = Int(seconds) % 60
+            if rest_seconds < 10 {
+                return "\(minutes):0\(rest_seconds)"
+            }
+            return "\(minutes):\(rest_seconds)"
+        }
+    }
+
+    func getNowPlayingItem() {
+        songImage.image = musicPlayer.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
+        songName.text = (musicPlayer.nowPlayingItem?.title != nil) ? musicPlayer.nowPlayingItem?.title : ""
+        groupName.text = (musicPlayer.nowPlayingItem?.artist != nil) ? musicPlayer.nowPlayingItem?.artist : ""
+    }
+    
+    func updateSliderProgress(){
+        progressSlider.setValue(Float(musicPlayer.currentPlaybackTime), animated: true)
+
+        songCurrentTime.text = toMinutes(time: musicPlayer.currentPlaybackTime)
+        songTotalTime.text = "- \(toMinutes(time:((musicPlayer.nowPlayingItem?.playbackDuration)! - musicPlayer.currentPlaybackTime)))"
+    }
+    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        musicPlayer.stop()
+        musicPlayer.setQueue(with: musicQuery)
+        musicPlayer.nowPlayingItem = musicQuery.items?[musicIndex]
         musicPlayer.play()
-        // FIXME: should not be an static CGSIZE!!!
-        songImage.image = musicPlayer.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
         
+        
+        // FIXME: should not be an static CGSIZE!!!
+        songImage.image = musicPlayer.nowPlayingItem?.artwork?.image(at: CGSize(width: 300, height: 300))
         songName.text = (musicPlayer.nowPlayingItem?.title != nil) ? musicPlayer.nowPlayingItem?.title : ""
         groupName.text = (musicPlayer.nowPlayingItem?.artist != nil) ? musicPlayer.nowPlayingItem?.artist : ""
-        //musicCollection = MPMediaItemCollection.init(items: [songInfo])
-        //musicPlayer.setQueue(with: musicCollection)
+        
+
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerController.getNowPlayingItem), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
+        let displayLink = CADisplayLink(target: self, selector: (#selector(PlayerController.updateSliderProgress)))
+        displayLink.add(to: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
         musicPlayer.beginGeneratingPlaybackNotifications()
+        progressSlider.maximumValue = Float(Int((musicPlayer.nowPlayingItem?.playbackDuration)!))
         
     }
     
