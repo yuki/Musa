@@ -10,6 +10,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Artists-->
+        <scene sceneID="97X-ja-kPX">
+            <objects>
+                <viewController id="elT-wC-2lt" customClass="ArtistsListController" customModule="Musa" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JQT-zk-VNp"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ep-HR-44v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="anV-Qz-gki">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-Ao-rco">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Artists" id="mEg-uL-wNo"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LpA-Ue-J4T">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ArtistsCell" id="wwt-hD-Tsc" customClass="ArtistsCell" customModule="Musa" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wwt-hD-Tsc" id="gHk-CP-UKT">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k5v-9h-sQR">
+                                                    <rect key="frame" x="8" y="5" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="Y68-t0-CXa"/>
+                                                        <constraint firstAttribute="width" constant="60" id="fGG-q2-TR7"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxP-c0-rAX">
+                                                    <rect key="frame" x="76" y="22" width="250" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nxP-c0-rAX" firstAttribute="centerY" secondItem="gHk-CP-UKT" secondAttribute="centerY" id="Ond-LD-jcq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nxP-c0-rAX" secondAttribute="trailing" constant="8" id="QLP-oc-MzS"/>
+                                                <constraint firstItem="nxP-c0-rAX" firstAttribute="leading" secondItem="k5v-9h-sQR" secondAttribute="trailing" constant="8" id="WFY-Rz-ZKi"/>
+                                                <constraint firstItem="k5v-9h-sQR" firstAttribute="leading" secondItem="gHk-CP-UKT" secondAttribute="leading" constant="8" id="jyI-yo-LgK"/>
+                                                <constraint firstItem="k5v-9h-sQR" firstAttribute="centerY" secondItem="gHk-CP-UKT" secondAttribute="centerY" id="wN6-aU-toa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistImage" destination="k5v-9h-sQR" id="dhy-AU-XI1"/>
+                                            <outlet property="artistName" destination="nxP-c0-rAX" id="XOF-W5-B1Z"/>
+                                            <segue destination="9pv-A4-QxB" kind="presentation" identifier="getAlbums" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="TcT-Qo-uWL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LpA-Ue-J4T" firstAttribute="top" secondItem="3Dd-Ao-rco" secondAttribute="bottom" id="3Wn-CI-GGv"/>
+                            <constraint firstItem="3Dd-Ao-rco" firstAttribute="top" secondItem="JQT-zk-VNp" secondAttribute="bottom" id="IVF-XF-GGn"/>
+                            <constraint firstAttribute="trailing" secondItem="LpA-Ue-J4T" secondAttribute="trailing" id="MUe-q0-qzm"/>
+                            <constraint firstItem="0ep-HR-44v" firstAttribute="top" secondItem="LpA-Ue-J4T" secondAttribute="bottom" id="MgA-uT-knt"/>
+                            <constraint firstAttribute="trailing" secondItem="3Dd-Ao-rco" secondAttribute="trailing" id="gqF-8J-6cn"/>
+                            <constraint firstItem="3Dd-Ao-rco" firstAttribute="leading" secondItem="anV-Qz-gki" secondAttribute="leading" id="pX2-r6-Zsi"/>
+                            <constraint firstItem="LpA-Ue-J4T" firstAttribute="leading" secondItem="anV-Qz-gki" secondAttribute="leading" id="qIZ-1k-4X7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Artists" id="w3a-Hc-6f6"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="artistsNavigationBar" destination="3Dd-Ao-rco" id="tj8-XR-We6"/>
+                        <outlet property="artistsNavigationItem" destination="mEg-uL-wNo" id="skJ-QO-VKN"/>
+                        <outlet property="artistsTable" destination="LpA-Ue-J4T" id="7IC-OM-S8u"/>
+                        <outlet property="searchDisplayController" destination="T9K-hE-Lts" id="6em-V1-DW5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tTE-Ul-UGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="T9K-hE-Lts">
+                    <connections>
+                        <outlet property="delegate" destination="elT-wC-2lt" id="eEY-zh-5u8"/>
+                        <outlet property="searchContentsController" destination="elT-wC-2lt" id="AOO-UE-SiY"/>
+                        <outlet property="searchResultsDataSource" destination="elT-wC-2lt" id="JsQ-Al-4Tw"/>
+                        <outlet property="searchResultsDelegate" destination="elT-wC-2lt" id="uap-IF-dV8"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="-1051.1244377811095"/>
+        </scene>
         <!--Albums-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -22,21 +120,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-aI-QYM">
-                                <rect key="frame" x="158.5" y="20" width="58" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hpb-62-2xy">
-                                <rect key="frame" x="0.0" y="41" width="375" height="577"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hpb-62-2xy">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumsCell" rowHeight="70" id="Bmo-L2-NCz" customClass="AlbumsCell" customModule="Musa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bmo-L2-NCz" id="3BF-LM-eGE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-7e-rSs">
@@ -88,25 +180,33 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJW-Cz-0WG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Albums" id="XsF-Sp-zwH"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="c8H-aI-QYM" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="1eD-F7-YHy"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="hpb-62-2xy" secondAttribute="bottom" id="GaE-nZ-Z1J"/>
-                            <constraint firstItem="hpb-62-2xy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="IQw-Bb-hI9"/>
-                            <constraint firstAttribute="trailing" secondItem="hpb-62-2xy" secondAttribute="trailing" id="RBA-5i-Dxw"/>
-                            <constraint firstItem="hpb-62-2xy" firstAttribute="top" secondItem="c8H-aI-QYM" secondAttribute="bottom" id="Rba-hG-fw3"/>
-                            <constraint firstItem="c8H-aI-QYM" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="d8K-Yi-HtR"/>
+                            <constraint firstItem="hpb-62-2xy" firstAttribute="top" secondItem="mJW-Cz-0WG" secondAttribute="bottom" id="1nj-Up-lLP"/>
+                            <constraint firstItem="mJW-Cz-0WG" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="I8s-xj-T2B"/>
+                            <constraint firstItem="mJW-Cz-0WG" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="MFB-rJ-zxZ"/>
+                            <constraint firstAttribute="trailing" secondItem="hpb-62-2xy" secondAttribute="trailing" id="MM9-cS-Y6S"/>
+                            <constraint firstItem="hpb-62-2xy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="fyx-p9-HAB"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="hpb-62-2xy" secondAttribute="bottom" id="hMG-RW-6J5"/>
+                            <constraint firstAttribute="trailing" secondItem="mJW-Cz-0WG" secondAttribute="trailing" id="yDc-xh-TaR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Albums" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Albums" image="first" selectedImage="first" id="I6S-H9-BjP"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="albumsTable" destination="hpb-62-2xy" id="X0e-9y-6bE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-349.47526236881561"/>
         </scene>
         <!--Songs-->
         <scene sceneID="wg7-f3-ORb">
@@ -126,15 +226,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rGV-26-gb0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rGV-26-gb0">
                                 <rect key="frame" x="0.0" y="40.5" width="375" height="577.5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongsCell" id="vLy-Al-yub" customClass="SongsCell" customModule="Musa" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vLy-Al-yub" id="0z5-8v-OwH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l1o-OG-jI5">
@@ -360,8 +460,9 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="elT-wC-2lt" kind="relationship" relationship="viewControllers" id="Snu-k7-8jz"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="kDL-ri-Hnf"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="S1S-Iv-4Bd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -373,4 +474,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TcT-Qo-uWL"/>
+    </inferredMetricsTieBreakers>
 </document>

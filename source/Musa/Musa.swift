@@ -15,26 +15,56 @@ import Foundation
 import MediaPlayer
 
 class Musa {
-    var albums = [MPMediaItem]()
+    var artistsQuery = MPMediaQuery()
+    var artists = [MPMediaItemCollection]()
+    var artistsCount: Int = 0
+    var artistsQuerySections = [MPMediaQuerySection]()
+    var artistsSections: [String]?
+    var artistsSectionsCount: Int = 0
+    
+    var albumsQuery = MPMediaQuery()
+    var albums = [MPMediaItemCollection]()
+    var albumsCount: Int = 0
+    var albumsQuerySections = [MPMediaQuerySection]()
+    var albumsSections: [String]?
+    var albumsSectionsCount: Int = 0
+    
     var songs = [MPMediaItem]()
     var songsCollection = [MPMediaQuerySection]()
     var songsQuery = MPMediaQuery()
 
 
     init() {
-        let qryAlbums = MPMediaQuery.albums()
-        qryAlbums.groupingType = MPMediaGrouping.album
-        for album in qryAlbums.collections!{
-            //album.representativeItem?.artwork.image
-            self.albums.append(album.representativeItem!)
-        }
+        self.artistsQuery = MPMediaQuery.artists()
+        //artists
+        self.artists = self.artistsQuery.collections!
+        self.artistsCount = self.artists.count
+        
+        //to know the range of the sections
+        self.artistsQuerySections =  self.artistsQuery.collectionSections!
+        //sections titles
+        self.artistsSections = self.artistsQuerySections.map { $0.title }
+        self.artistsSectionsCount = (self.artistsSections?.count)!
+        
+
+        self.albumsQuery = MPMediaQuery.albums()
+        self.albums = self.albumsQuery.collections!
+        self.albumsCount = self.albums.count
+        //to know the range of the sections
+        self.albumsQuerySections =  self.albumsQuery.collectionSections!
+        //sections titles
+        self.albumsSections = self.albumsQuerySections.map { $0.title }
+        self.albumsSectionsCount = (self.albumsSections?.count)!
+        
 
         self.songsQuery = MPMediaQuery.songs()
-        for song in self.songsQuery.collections!{
-            //album.representativeItem?.artwork.image
-            self.songs.append(song.representativeItem!)
+        if (self.songsQuery.items?.count)! > 0 {
+            for song in self.songsQuery.collections!{
+                //album.representativeItem?.artwork.image
+                self.songs.append(song.representativeItem!)
+            }
+            self.songsCollection = self.songsQuery.collectionSections!
         }
-        self.songsCollection = self.songsQuery.collectionSections!
     }
     
     

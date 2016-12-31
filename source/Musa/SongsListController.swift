@@ -17,7 +17,7 @@ import MediaPlayer
 class SongsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var songsTable: UITableView!
-    var musa = Musa()
+    //var musa = Musa()
     var selectedRow = 0
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return musa.songsQuery.itemSections!.count
+        return (musa.songsQuery.itemSections?.count)!
     }
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {

@@ -27,7 +27,8 @@ class PlayerController: UIViewController {
     @IBOutlet weak var volumeBar: UISlider!
     
     
-    var musicPlayer = MPMusicPlayerController.systemMusicPlayer()
+    //var musicPlayer = MPMusicPlayerController.systemMusicPlayer()
+    var musicPlayer = MPMusicPlayerController.applicationMusicPlayer()
     var songInfo = MPMediaItem()
     var musicQuery = MPMediaQuery()
     var musicIndex: Int = 0
@@ -108,8 +109,11 @@ class PlayerController: UIViewController {
         songName.text = (musicPlayer.nowPlayingItem?.title != nil) ? musicPlayer.nowPlayingItem?.title : ""
         groupName.text = (musicPlayer.nowPlayingItem?.artist != nil) ? musicPlayer.nowPlayingItem?.artist : ""
         
-
+        //https://developer.apple.com/library/content/documentation/Audio/Conceptual/iPodLibraryAccess_Guide/UsingMediaPlayback/UsingMediaPlayback.html
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerController.getNowPlayingItem), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
+        // FIXME: MPMusicPlayerControllerPlaybackStateDidChangeNotification
+        // beginGeneratingPlaybackNotifications
+        
         let displayLink = CADisplayLink(target: self, selector: (#selector(PlayerController.updateSliderProgress)))
         displayLink.add(to: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
         musicPlayer.beginGeneratingPlaybackNotifications()
