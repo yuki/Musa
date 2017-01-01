@@ -16,56 +16,100 @@ import MediaPlayer
 
 class Musa {
     var artistsQuery = MPMediaQuery()
-    var artists = [MPMediaItemCollection]()
-    var artistsCount: Int = 0
-    var artistsQuerySections = [MPMediaQuerySection]()
-    var artistsSections: [String]?
-    var artistsSectionsCount: Int = 0
-    
     var albumsQuery = MPMediaQuery()
-    var albums = [MPMediaItemCollection]()
-    var albumsCount: Int = 0
-    var albumsQuerySections = [MPMediaQuerySection]()
-    var albumsSections: [String]?
-    var albumsSectionsCount: Int = 0
-    
-    var songs = [MPMediaItem]()
-    var songsCollection = [MPMediaQuerySection]()
     var songsQuery = MPMediaQuery()
 
 
     init() {
         self.artistsQuery = MPMediaQuery.artists()
-        //artists
-        self.artists = self.artistsQuery.collections!
-        self.artistsCount = self.artists.count
-        
-        //to know the range of the sections
-        self.artistsQuerySections =  self.artistsQuery.collectionSections!
-        //sections titles
-        self.artistsSections = self.artistsQuerySections.map { $0.title }
-        self.artistsSectionsCount = (self.artistsSections?.count)!
-        
-
         self.albumsQuery = MPMediaQuery.albums()
-        self.albums = self.albumsQuery.collections!
-        self.albumsCount = self.albums.count
-        //to know the range of the sections
-        self.albumsQuerySections =  self.albumsQuery.collectionSections!
-        //sections titles
-        self.albumsSections = self.albumsQuerySections.map { $0.title }
-        self.albumsSectionsCount = (self.albumsSections?.count)!
-        
-
         self.songsQuery = MPMediaQuery.songs()
-        if (self.songsQuery.items?.count)! > 0 {
-            for song in self.songsQuery.collections!{
-                //album.representativeItem?.artwork.image
-                self.songs.append(song.representativeItem!)
-            }
-            self.songsCollection = self.songsQuery.collectionSections!
-        }
     }
-    
-    
+
+    // MARK: - ARTISTS functions
+
+    func artists() -> [MPMediaItemCollection] {
+        return self.artistsQuery.collections!
+    }
+
+    func artistsCount () -> Int {
+        return self.artists().count
+    }
+
+    func artistsQuerySections () -> [MPMediaQuerySection]{
+        return self.artistsQuery.collectionSections!
+    }
+
+    func artistsSections () -> [String] {
+        return self.artistsQuery.collectionSections!.map { $0.title }
+    }
+
+    func artistsSectionsCount () -> Int {
+        return self.artistsSections().count
+    }
+
+    // MARK: - ALBUMS functions
+
+    func albums () -> [MPMediaItemCollection] {
+        return self.albumsQuery.collections!
+    }
+
+    func albumsCount () -> Int {
+        return self.albums().count
+    }
+
+    func albumsQuerySections () -> [MPMediaQuerySection]{
+        return self.albumsQuery.collectionSections!
+    }
+
+    func albumsSections () -> [String] {
+        return self.albumsQuery.collectionSections!.map { $0.title }
+    }
+
+    func albumsSectionsCount () -> Int {
+        return self.albumsSections().count
+    }
+
+    // MARK: - SONGS functions
+
+    func songs () -> [MPMediaItemCollection] {
+        return self.songsQuery.collections!
+    }
+
+    func songsCount () -> Int {
+        return self.songs().count
+    }
+
+    func songsQuerySections () -> [MPMediaQuerySection]{
+        return self.songsQuery.collectionSections!
+    }
+
+    func songsSections () -> [String] {
+        return self.songsQuery.collectionSections!.map { $0.title }
+    }
+
+    func songsSectionsCount () -> Int {
+        return self.songsSections().count
+    }
+
+
+
+
+    // MARK: - GET custom functions
+
+    func getAlbumsFromArtist (artist: MPMediaEntityPersistentID) -> MPMediaQuery? {
+        let predicateByArtist = MPMediaPropertyPredicate(value: artist, forProperty: MPMediaItemPropertyArtistPersistentID)
+        self.albumsQuery.addFilterPredicate(predicateByArtist)
+        
+        return self.albumsQuery
+    }
+
+    func getSongsFromAlbum(album: MPMediaEntityPersistentID)  -> MPMediaQuery? {
+        let predicateByAlbum = MPMediaPropertyPredicate(value: album, forProperty: MPMediaItemPropertyAlbumPersistentID)
+        self.songsQuery.addFilterPredicate(predicateByAlbum)
+
+        return self.songsQuery
+    }
+
+
 }

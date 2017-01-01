@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B60CD6F41E0B2C3400C7CBE3 /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */; };
 		B60CD6F61E0B415E00C7CBE3 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CD6F51E0B415E00C7CBE3 /* PlayerController.swift */; };
-		B64CA9B91E146DAD001631FD /* AritstsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CA9B81E146DAD001631FD /* AritstsListController.swift */; };
+		B64CA9B91E146DAD001631FD /* ArtistsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CA9B81E146DAD001631FD /* ArtistsListController.swift */; };
 		B6BE20001E170F6D00A22FE4 /* ArtistsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BE1FFF1E170F6D00A22FE4 /* ArtistsCell.swift */; };
 		B6C6247C1E09E4660022D976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6247B1E09E4660022D976 /* AppDelegate.swift */; };
 		B6C6247E1E09E4660022D976 /* AlbumsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6247D1E09E4660022D976 /* AlbumsListController.swift */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
 		B60CD6F51E0B415E00C7CBE3 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
-		B64CA9B81E146DAD001631FD /* AritstsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AritstsListController.swift; sourceTree = "<group>"; };
+		B64CA9B81E146DAD001631FD /* ArtistsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsListController.swift; sourceTree = "<group>"; };
 		B6BE1FFF1E170F6D00A22FE4 /* ArtistsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsCell.swift; sourceTree = "<group>"; };
 		B6C624781E09E4660022D976 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C6247B1E09E4660022D976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,8 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				B6C6247B1E09E4660022D976 /* AppDelegate.swift */,
+				B64CA9B81E146DAD001631FD /* ArtistsListController.swift */,
 				B6BE1FFF1E170F6D00A22FE4 /* ArtistsCell.swift */,
-				B64CA9B81E146DAD001631FD /* AritstsListController.swift */,
 				B6C6247D1E09E4660022D976 /* AlbumsListController.swift */,
 				B6C624941E09E6E50022D976 /* AlbumsCell.swift */,
 				B6C6247F1E09E4660022D976 /* SongsListController.swift */,
@@ -181,7 +181,7 @@
 				B60CD6F41E0B2C3400C7CBE3 /* SongsCell.swift in Sources */,
 				B6C6247C1E09E4660022D976 /* AppDelegate.swift in Sources */,
 				B60CD6F61E0B415E00C7CBE3 /* PlayerController.swift in Sources */,
-				B64CA9B91E146DAD001631FD /* AritstsListController.swift in Sources */,
+				B64CA9B91E146DAD001631FD /* ArtistsListController.swift in Sources */,
 				B6C6247E1E09E4660022D976 /* AlbumsListController.swift in Sources */,
 				B6C624931E09E6800022D976 /* Musa.swift in Sources */,
 			);

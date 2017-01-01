@@ -19,8 +19,9 @@ class AlbumsListController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var albumsTable: UITableView!
     var selectedRow = 0
     
-    // SEGUE
-    var artistQuery: MPMediaItemCollection?
+    // from SEGUE
+    var artistAlbums: MPMediaQuery?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,14 @@ class AlbumsListController: UIViewController, UITableViewDelegate, UITableViewDa
         albumsTable.delegate = self
         albumsTable.dataSource = self
     }
+    
 
+    // MARK: - Table View
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = albumsTable.dequeueReusableCell(withIdentifier: "AlbumsCell", for: indexPath) as?  AlbumsCell {
-            let currentLocation = musa.albumsQuerySections[indexPath.section].range.location
-            let albumInfo = musa.albums[indexPath.row + currentLocation].representativeItem
+            let currentLocation = musa.albumsQuerySections()[indexPath.section].range.location
+            let albumInfo = musa.albums()[indexPath.row + currentLocation].representativeItem
             cell.updateUI(album: albumInfo!)
             return cell
         } else {
@@ -41,26 +45,52 @@ class AlbumsListController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return musa.albumsQuerySections[section].range.length
+        return musa.albumsQuerySections()[section].range.length
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return musa.albumsQuerySections[section].title
+        return musa.albumsQuerySections()[section].title
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return musa.albumsSections
+        return musa.albumsSections()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return musa.albumsSectionsCount
+        return musa.albumsSectionsCount()
     }
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
     }
 
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var index = 0
+        
+        if indexPath[0] != 0 {
+            var i = 0
+            while i < indexPath[0] {
+                index = index + musa.albumsQuerySections()[i].range.length
+                i += 1
+            }
+        }
+        self.selectedRow = index + indexPath[1]
+        let albumInfo = musa.albums()[self.selectedRow]
+        let albumSongs = musa.getSongsFromAlbum(album: (albumInfo.representativeItem?.albumPersistentID)!)
+        performSegue(withIdentifier: "getSongs", sender: albumSongs)
+    }
+    
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SongsListController {
+            if let albumSongs = sender as? MPMediaQuery {
+                destination.albumSongs = albumSongs
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
