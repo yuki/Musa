@@ -29,7 +29,7 @@ class PlayerController: UIViewController {
     
     //var musicPlayer = MPMusicPlayerController.systemMusicPlayer()
     var musicPlayer = MPMusicPlayerController.applicationMusicPlayer()
-    var musicQuery = musa.songsQuery
+    var musicQuery = Musa.default.songsQuery
     var musicIndex: Int = 0
     
     
@@ -61,7 +61,7 @@ class PlayerController: UIViewController {
     
     //FIXME: refactor this function
     // the time updates in freak mode :/
-    func toMinutes(time: TimeInterval) -> String{
+    func convert(toMinutes time: TimeInterval) -> String {
         let seconds = Int(time)
         if seconds < 60 {
             if seconds < 10 {
@@ -87,12 +87,13 @@ class PlayerController: UIViewController {
     func updateSliderProgress(){
         progressSlider.setValue(Float(musicPlayer.currentPlaybackTime), animated: true)
 
-        songCurrentTime.text = toMinutes(time: musicPlayer.currentPlaybackTime)
-        songTotalTime.text = "- \(toMinutes(time:((musicPlayer.nowPlayingItem?.playbackDuration)! - musicPlayer.currentPlaybackTime)))"
+        songCurrentTime.text = convert(toMinutes: musicPlayer.currentPlaybackTime)
+        if let duration = musicPlayer.nowPlayingItem?.playbackDuration {
+            songTotalTime.text = "- \(convert(toMinutes: duration - musicPlayer.currentPlaybackTime))"
+        } else {
+            songTotalTime.text = "-"
+        }
     }
-    
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

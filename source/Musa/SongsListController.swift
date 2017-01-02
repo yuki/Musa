@@ -31,8 +31,8 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = songsTable.dequeueReusableCell(withIdentifier: "SongsCell", for: indexPath) as?  SongsCell {
-            let currentLocation = musa.songsQuerySections()[indexPath.section].range.location
-            let songInfo = musa.songs()[indexPath.row + currentLocation].representativeItem
+            let currentLocation = Musa.default.songsQuerySections()[indexPath.section].range.location
+            let songInfo = Musa.default.songs()[indexPath.row + currentLocation].representativeItem
             cell.updateUI(song: songInfo!)
             return cell
         } else {
@@ -41,19 +41,19 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return musa.songsQuerySections()[section].range.length
+        return Musa.default.songsQuerySections()[section].range.length
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return musa.songsQuerySections()[section].title
+        return Musa.default.songsQuerySections()[section].title
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return musa.songsSections()
+        return Musa.default.songsSections()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return musa.songsSectionsCount()
+        return Musa.default.songsSectionsCount()
     }
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
@@ -67,12 +67,12 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
         if indexPath[0] != 0 {
             var i = 0
             while i < indexPath[0] {
-                index = index + musa.songsQuerySections()[i].range.length
+                index = index + Musa.default.songsQuerySections()[i].range.length
                 i += 1
             }
         }
         self.selectedRow = index + indexPath[1]
-        //let songInfo = musa.songs()[self.selectedRow]
+        //let songInfo = Musa.default.songs()[self.selectedRow]
         performSegue(withIdentifier: "PlaySong", sender: self.selectedRow)
     }
     
