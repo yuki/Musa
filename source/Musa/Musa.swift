@@ -15,21 +15,18 @@ import Foundation
 import MediaPlayer
 
 class Musa {
-    var artistsQuery = MPMediaQuery()
-    var albumsQuery = MPMediaQuery()
-    var songsQuery = MPMediaQuery()
+    static let `default` = Musa()
+    
+    let artistsQuery = MPMediaQuery.artists()
+    let albumsQuery = MPMediaQuery.albums()
+    let songsQuery = MPMediaQuery.songs()
 
-
-    init() {
-        self.artistsQuery = MPMediaQuery.artists()
-        self.albumsQuery = MPMediaQuery.albums()
-        self.songsQuery = MPMediaQuery.songs()
-    }
+    private init() {}
 
     // MARK: - ARTISTS functions
 
     func artists() -> [MPMediaItemCollection] {
-        return self.artistsQuery.collections!
+        return self.artistsQuery.collections ?? []
     }
 
     func artistsCount () -> Int {
@@ -37,11 +34,11 @@ class Musa {
     }
 
     func artistsQuerySections () -> [MPMediaQuerySection]{
-        return self.artistsQuery.collectionSections!
+        return self.artistsQuery.collectionSections ?? []
     }
 
     func artistsSections () -> [String] {
-        return self.artistsQuery.collectionSections!.map { $0.title }
+        return self.artistsQuery.collectionSections?.map { $0.title } ?? []
     }
 
     func artistsSectionsCount () -> Int {
@@ -51,7 +48,7 @@ class Musa {
     // MARK: - ALBUMS functions
 
     func albums () -> [MPMediaItemCollection] {
-        return self.albumsQuery.collections!
+        return self.albumsQuery.collections ?? []
     }
 
     func albumsCount () -> Int {
@@ -59,11 +56,11 @@ class Musa {
     }
 
     func albumsQuerySections () -> [MPMediaQuerySection]{
-        return self.albumsQuery.collectionSections!
+        return self.albumsQuery.collectionSections ?? []
     }
 
     func albumsSections () -> [String] {
-        return self.albumsQuery.collectionSections!.map { $0.title }
+        return self.albumsQuery.collectionSections?.map { $0.title } ?? []
     }
 
     func albumsSectionsCount () -> Int {
@@ -73,7 +70,7 @@ class Musa {
     // MARK: - SONGS functions
 
     func songs () -> [MPMediaItemCollection] {
-        return self.songsQuery.collections!
+        return self.songsQuery.collections ?? []
     }
 
     func songsCount () -> Int {
@@ -81,11 +78,11 @@ class Musa {
     }
 
     func songsQuerySections () -> [MPMediaQuerySection]{
-        return self.songsQuery.collectionSections!
+        return self.songsQuery.collectionSections ?? []
     }
 
     func songsSections () -> [String] {
-        return self.songsQuery.collectionSections!.map { $0.title }
+        return self.songsQuery.collectionSections?.map { $0.title } ?? []
     }
 
     func songsSectionsCount () -> Int {

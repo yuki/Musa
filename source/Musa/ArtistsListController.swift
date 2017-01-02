@@ -35,8 +35,8 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = artistsTable.dequeueReusableCell(withIdentifier: "ArtistsCell", for: indexPath) as?  ArtistsCell {
-            let currentLocation = musa.artistsQuerySections()[indexPath.section].range.location
-            let songInfo = musa.artists()[indexPath.row + currentLocation].representativeItem
+            let currentLocation = Musa.default.artistsQuerySections()[indexPath.section].range.location
+            let songInfo = Musa.default.artists()[indexPath.row + currentLocation].representativeItem
             cell.updateUI(artist: songInfo!)
             return cell
         } else {
@@ -45,39 +45,39 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return musa.artistsQuerySections()[section].range.length
+        return Musa.default.artistsQuerySections()[section].range.length
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return musa.artistsQuerySections()[section].title
+        return Musa.default.artistsQuerySections()[section].title
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return musa.artistsSections()
+        return Musa.default.artistsSections()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return musa.artistsSectionsCount()
+        return Musa.default.artistsSectionsCount()
     }
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var index = 0
     
-        if indexPath[0] != 0 {
+        if indexPath.section != 0 {
             var i = 0
-            while i < indexPath[0] {
-                index = index + musa.artistsQuerySections()[i].range.length
+            while i < indexPath.section {
+                index = index + Musa.default.artistsQuerySections()[i].range.length
                 i += 1
             }
         }
-        self.selectedRow = index + indexPath[1]
-        let artistInfo = musa.artists()[self.selectedRow]
-        let artistAlbums = musa.getAlbumsFromArtist(artist: (artistInfo.representativeItem?.artistPersistentID)!)
+        
+        self.selectedRow = index + indexPath.row
+        let artistInfo = Musa.default.artists()[self.selectedRow]
+        let artistAlbums = Musa.default.getAlbumsFromArtist(artist: (artistInfo.representativeItem?.artistPersistentID)!)
         performSegue(withIdentifier: "getAlbums", sender: artistAlbums)
     }
 
@@ -92,11 +92,4 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
