@@ -17,96 +17,100 @@ import MediaPlayer
 class Musa {
     static let `default` = Musa()
     
-    let artistsQuery = MPMediaQuery.artists()
-    let albumsQuery = MPMediaQuery.albums()
-    let songsQuery = MPMediaQuery.songs()
-
-    private init() {}
-
-    // MARK: - ARTISTS functions
-
-    func artists() -> [MPMediaItemCollection] {
-        return self.artistsQuery.collections ?? []
-    }
-
-    func artistsCount () -> Int {
-        return self.artists().count
-    }
-
-    func artistsQuerySections () -> [MPMediaQuerySection]{
-        return self.artistsQuery.collectionSections ?? []
-    }
-
-    func artistsSections () -> [String] {
-        return self.artistsQuery.collectionSections?.map { $0.title } ?? []
-    }
-
-    func artistsSectionsCount () -> Int {
-        return self.artistsSections().count
-    }
-
-    // MARK: - ALBUMS functions
-
-    func albums () -> [MPMediaItemCollection] {
-        return self.albumsQuery.collections ?? []
-    }
-
-    func albumsCount () -> Int {
-        return self.albums().count
-    }
-
-    func albumsQuerySections () -> [MPMediaQuerySection]{
-        return self.albumsQuery.collectionSections ?? []
-    }
-
-    func albumsSections () -> [String] {
-        return self.albumsQuery.collectionSections?.map { $0.title } ?? []
-    }
-
-    func albumsSectionsCount () -> Int {
-        return self.albumsSections().count
-    }
-
-    // MARK: - SONGS functions
-
-    func songs () -> [MPMediaItemCollection] {
-        return self.songsQuery.collections ?? []
-    }
-
-    func songsCount () -> Int {
-        return self.songs().count
-    }
-
-    func songsQuerySections () -> [MPMediaQuerySection]{
-        return self.songsQuery.collectionSections ?? []
-    }
-
-    func songsSections () -> [String] {
-        return self.songsQuery.collectionSections?.map { $0.title } ?? []
-    }
-
-    func songsSectionsCount () -> Int {
-        return self.songsSections().count
-    }
+    var query = [String:MPMediaQuery]()
 
 
-
-
-    // MARK: - GET custom functions
-
-    func getAlbumsFromArtist (artist: MPMediaEntityPersistentID) -> MPMediaQuery? {
-        let predicateByArtist = MPMediaPropertyPredicate(value: artist, forProperty: MPMediaItemPropertyArtistPersistentID)
-        self.albumsQuery.addFilterPredicate(predicateByArtist)
+    private init() {
+        self.query["Artists"]       = MPMediaQuery.artists()
+        self.query["Albums"]        = MPMediaQuery.albums()
+        self.query["Songs"]         = MPMediaQuery.songs()
+        self.query["Genres"]        = MPMediaQuery.genres()
+        self.query["Compilations"]  = MPMediaQuery.compilations()
+        self.query["Playlists"]     = MPMediaQuery.playlists()
+        self.query["Composers"]     = MPMediaQuery.composers()
         
-        return self.albumsQuery
+    }
+    
+    // MARK: - GET functions
+    
+    func getCollection(collection: String) -> [MPMediaItemCollection] {
+        return self.query[collection]!.collections ?? []
+    }
+    
+    func getCollectionCount (collection: String) -> Int {
+        return self.getCollection(collection: collection).count
+    }
+    
+    func getCollectionQuerySections (collection: String) -> [MPMediaQuerySection]{
+        return self.query[collection]!.collectionSections ?? []
+    }
+    
+    func getCollectionSections (collection: String) -> [String] {
+        return self.query[collection]!.collectionSections?.map { $0.title } ?? []
+    }
+    
+    func getCollectionSectionsCount (collection: String) -> Int {
+        return self.getCollectionSections(collection: collection).count
     }
 
-    func getSongsFromAlbum(album: MPMediaEntityPersistentID)  -> MPMediaQuery? {
-        let predicateByAlbum = MPMediaPropertyPredicate(value: album, forProperty: MPMediaItemPropertyAlbumPersistentID)
-        self.songsQuery.addFilterPredicate(predicateByAlbum)
 
-        return self.songsQuery
+
+    // MARK: - SEARCH functions
+    
+    func search (inCollection: String, searchBy: String, search: MPMediaEntityPersistentID) -> MPMediaQuery? {
+        var property = MPMediaItemPropertyArtistPersistentID
+        var groupBy = MPMediaGrouping.album
+        switch searchBy {
+            case "Genre":
+                property = MPMediaItemPropertyGenrePersistentID
+                groupBy  = MPMediaGrouping.artist
+            case "Artist":
+                property = MPMediaItemPropertyArtistPersistentID
+                groupBy  = MPMediaGrouping.album
+            case "Album":
+                property = MPMediaItemPropertyAlbumPersistentID
+                groupBy  = MPMediaGrouping.title
+            //FIXME: how to search by playlist?
+            //case "Playlist":
+            //    property = MPMediaItemPropertyGenrePersistentID
+            case "Compilation":
+                property = MPMediaItemPropertyIsCompilation
+            default:
+                property = MPMediaItemPropertyArtistPersistentID
+                groupBy  = MPMediaGrouping.album
+        }
+        let predicate = MPMediaPropertyPredicate(value: search, forProperty: property)
+        self.query[inCollection]!.addFilterPredicate(predicate)
+        self.query[inCollection]?.groupingType = groupBy
+        
+        return self.query[inCollection]
     }
-
+    
+    func removeSearch (inCollection: String, searchBy: String, search: MPMediaEntityPersistentID) {
+        var property = MPMediaItemPropertyArtistPersistentID
+        var groupBy = MPMediaGrouping.album
+        switch searchBy {
+            case "Genre":
+                property = MPMediaItemPropertyGenrePersistentID
+                groupBy  = MPMediaGrouping.genre
+            case "Artist":
+                property = MPMediaItemPropertyArtistPersistentID
+                groupBy  = MPMediaGrouping.artist
+            case "Album":
+                property = MPMediaItemPropertyAlbumPersistentID
+                groupBy  = MPMediaGrouping.album
+            //FIXME: how to search by playlist?
+            //case "Playlist":
+            //    property = MPMediaItemPropertyGenrePersistentID
+            case "Compilation":
+                property = MPMediaItemPropertyIsCompilation
+            default:
+                property = MPMediaItemPropertyArtistPersistentID
+                groupBy  = MPMediaGrouping.album
+        }
+        let predicate = MPMediaPropertyPredicate(value: search, forProperty: property)
+        self.query[inCollection]!.removeFilterPredicate(predicate)
+        self.query[inCollection]?.groupingType = groupBy
+    }
 
 }

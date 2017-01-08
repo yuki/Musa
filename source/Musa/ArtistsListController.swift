@@ -16,27 +16,28 @@ import MediaPlayer
 
 class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var artistsNavigationItem: UINavigationItem!
-    @IBOutlet weak var artistsNavigationBar: UINavigationBar!
     @IBOutlet weak var artistsTable: UITableView!
     
     var selectedRow = 0
+    var fromSegue = false
+    var ancestor = "Artists"
+    var genreArtists: MPMediaQuery?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         artistsTable.delegate = self
         artistsTable.dataSource = self
-        //artistsNavigationItem.leftBarButtonItem = self.editButtonItem
     }
+
     
     
     // MARK: - Table View
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = artistsTable.dequeueReusableCell(withIdentifier: "ArtistsCell", for: indexPath) as?  ArtistsCell {
-            let currentLocation = Musa.default.artistsQuerySections()[indexPath.section].range.location
-            let songInfo = Musa.default.artists()[indexPath.row + currentLocation].representativeItem
+            let currentLocation = Musa.default.getCollectionQuerySections(collection: self.ancestor)[indexPath.section].range.location
+            let songInfo = Musa.default.getCollection(collection: self.ancestor)[indexPath.row + currentLocation].representativeItem
             cell.updateUI(artist: songInfo!)
             return cell
         } else {
@@ -45,19 +46,19 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Musa.default.artistsQuerySections()[section].range.length
+        return Musa.default.getCollectionQuerySections(collection: self.ancestor)[section].range.length
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Musa.default.artistsQuerySections()[section].title
+        return Musa.default.getCollectionQuerySections(collection: self.ancestor)[section].title
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return Musa.default.artistsSections()
+        return Musa.default.getCollectionSections(collection: self.ancestor)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Musa.default.artistsSectionsCount()
+        return Musa.default.getCollectionSectionsCount(collection: self.ancestor)
     }
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
@@ -70,15 +71,16 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.section != 0 {
             var i = 0
             while i < indexPath.section {
-                index = index + Musa.default.artistsQuerySections()[i].range.length
+                index = index + Musa.default.getCollectionQuerySections(collection: self.ancestor)[i].range.length
                 i += 1
             }
         }
         
         self.selectedRow = index + indexPath.row
-        let artistInfo = Musa.default.artists()[self.selectedRow]
-        let artistAlbums = Musa.default.getAlbumsFromArtist(artist: (artistInfo.representativeItem?.artistPersistentID)!)
+        let artistInfo = Musa.default.getCollection(collection: self.ancestor)[self.selectedRow]
+        let artistAlbums = Musa.default.search(inCollection: self.ancestor, searchBy: "Artist", search: (artistInfo.representativeItem?.artistPersistentID)!)
         performSegue(withIdentifier: "getAlbums", sender: artistAlbums)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     
@@ -87,9 +89,20 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? AlbumsListController {
             if let artistAlbums = sender as? MPMediaQuery {
+                destination.fromSegue  = true
                 destination.artistAlbums = artistAlbums
+                destination.ancestor = self.ancestor
+                destination.navigationItem.title = artistAlbums.collections?.first?.representativeItem?.albumArtist
+                
             }
         }
     }
     
+    override func didMove(toParentViewController parent: UIViewController?) {
+        if (!(parent?.isEqual(self.parent) ?? false)) {
+            Musa.default.removeSearch(inCollection: self.ancestor, searchBy: "Genre", search: (genreArtists?.items?.first?.genrePersistentID)!)
+        }
+    }
+
+
 }

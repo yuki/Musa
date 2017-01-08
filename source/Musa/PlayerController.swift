@@ -29,8 +29,9 @@ class PlayerController: UIViewController {
     
     //var musicPlayer = MPMusicPlayerController.systemMusicPlayer()
     var musicPlayer = MPMusicPlayerController.applicationMusicPlayer()
-    var musicQuery = Musa.default.songsQuery
+    //var musicQuery = Musa.default.songsQuery
     var musicIndex: Int = 0
+    var ancestor = "Player"
     
     
     @IBAction func changeProgresBar(_ sender: UISlider) {
@@ -98,8 +99,8 @@ class PlayerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         musicPlayer.stop()
-        musicPlayer.setQueue(with: musicQuery)
-        musicPlayer.nowPlayingItem = musicQuery.items?[musicIndex]
+        musicPlayer.setQueue(with: Musa.default.query[self.ancestor]!)
+        musicPlayer.nowPlayingItem = Musa.default.query[self.ancestor]!.items?[musicIndex]
         musicPlayer.play()
         
         
