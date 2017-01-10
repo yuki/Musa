@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60637571E2529E8003EFBCE /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60637561E2529E8003EFBCE /* MiniPlayerViewController.swift */; };
 		B60CD6F41E0B2C3400C7CBE3 /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */; };
 		B60CD6F61E0B415E00C7CBE3 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CD6F51E0B415E00C7CBE3 /* PlayerController.swift */; };
 		B64CA9B91E146DAD001631FD /* ArtistsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CA9B81E146DAD001631FD /* ArtistsListController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B60637561E2529E8003EFBCE /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
 		B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
 		B60CD6F51E0B415E00C7CBE3 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		B64CA9B81E146DAD001631FD /* ArtistsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsListController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */,
 				B60CD6F51E0B415E00C7CBE3 /* PlayerController.swift */,
 				B6C624811E09E4660022D976 /* Main.storyboard */,
+				B60637561E2529E8003EFBCE /* MiniPlayerViewController.swift */,
 				B6C624841E09E4660022D976 /* Assets.xcassets */,
 				B6C624861E09E4660022D976 /* LaunchScreen.storyboard */,
 				B6C624891E09E4660022D976 /* Info.plist */,
@@ -183,6 +186,7 @@
 			files = (
 				B6C624951E09E6E50022D976 /* AlbumsCell.swift in Sources */,
 				B6BE20001E170F6D00A22FE4 /* ArtistsCell.swift in Sources */,
+				B60637571E2529E8003EFBCE /* MiniPlayerViewController.swift in Sources */,
 				B699FD1D1E23C91B00C86AB9 /* GenresCell.swift in Sources */,
 				B6C624801E09E4660022D976 /* SongsListController.swift in Sources */,
 				B60CD6F41E0B2C3400C7CBE3 /* SongsCell.swift in Sources */,

@@ -86,7 +86,7 @@ class AlbumsListController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    // MARK: - Segues
+    // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SongsListController {
@@ -99,6 +99,7 @@ class AlbumsListController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    // MARK: Go back.
     override func didMove(toParentViewController parent: UIViewController?) {
         if (!(parent?.isEqual(self.parent) ?? false)) {
             Musa.default.removeSearch(inCollection: self.ancestor, searchBy: "Artist", search: (artistAlbums?.items?.first?.artistPersistentID)!)

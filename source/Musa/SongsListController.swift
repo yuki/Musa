@@ -79,27 +79,16 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         self.selectedRow = index + indexPath[1]
-        //let songInfo = Musa.default.songs()[self.selectedRow]
-        performSegue(withIdentifier: "PlaySong", sender: self.selectedRow)
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        Musa.default.startPlaying(musaQuery: self.ancestor, index: self.selectedRow)
     }
     
-    // MARK: - Segues
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination  as? PlayerController {
-            if let musicIndex = sender as? Int {
-                destination.musicIndex = musicIndex
-                destination.ancestor = self.ancestor
-            }
-        }
-    }
-    
+    // MARK: Go back.
     override func didMove(toParentViewController parent: UIViewController?) {
         if (!(parent?.isEqual(self.parent) ?? false)) {
             Musa.default.removeSearch(inCollection: self.ancestor, searchBy: "Album", search: (albumSongs?.items?.first?.albumPersistentID)!)
         }
     }
-
 
 }

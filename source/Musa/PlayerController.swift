@@ -27,36 +27,24 @@ class PlayerController: UIViewController {
     @IBOutlet weak var volumeBar: UISlider!
     
     
-    //var musicPlayer = MPMusicPlayerController.systemMusicPlayer()
-    var musicPlayer = MPMusicPlayerController.applicationMusicPlayer()
-    //var musicQuery = Musa.default.songsQuery
-    var musicIndex: Int = 0
-    var ancestor = "Player"
-    
+    @IBAction func minButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func changeProgresBar(_ sender: UISlider) {
-        musicPlayer.currentPlaybackTime = TimeInterval(progressSlider.value)
+        Musa.player.currentPlaybackTime = TimeInterval(progressSlider.value)
     }
     
     @IBAction func pressPlayButton(_ sender: UIButton) {
-        if musicPlayer.playbackState == MPMusicPlaybackState.playing {
-            musicPlayer.pause()
-            playButton.setTitle("Play", for: UIControlState.normal)
-        } else {
-            musicPlayer.play()
-            playButton.setTitle("Pause", for: UIControlState.normal)
-            
-        }
+        Musa.default.playPauseSong()
     }
     
     @IBAction func pressPrevButton(_ sender: UIButton) {
-        musicPlayer.skipToPreviousItem()
-        getNowPlayingItem()
+        Musa.default.previousSong()
     }
     
     @IBAction func pressNextButton(_ sender: UIButton) {
-        musicPlayer.skipToNextItem()
-        getNowPlayingItem()
+        Musa.default.nextSong()
     }
     
     
@@ -80,17 +68,18 @@ class PlayerController: UIViewController {
     }
 
     func getNowPlayingItem() {
-        songImage.image = musicPlayer.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
-        songName.text = (musicPlayer.nowPlayingItem?.title != nil) ? musicPlayer.nowPlayingItem?.title : ""
-        groupName.text = (musicPlayer.nowPlayingItem?.artist != nil) ? musicPlayer.nowPlayingItem?.artist : ""
+        playButton.setTitle(Musa.default.isPlaying() ? "Pause" : "Play", for: UIControlState.normal)
+        songImage.image = Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
+        songName.text = (Musa.player.nowPlayingItem?.title != nil) ? Musa.player.nowPlayingItem?.title : ""
+        groupName.text = (Musa.player.nowPlayingItem?.artist != nil) ? Musa.player.nowPlayingItem?.artist : ""
     }
     
     func updateSliderProgress(){
-        progressSlider.setValue(Float(musicPlayer.currentPlaybackTime), animated: true)
+        progressSlider.setValue(Float(Musa.player.currentPlaybackTime), animated: true)
 
-        songCurrentTime.text = convert(toMinutes: musicPlayer.currentPlaybackTime)
-        if let duration = musicPlayer.nowPlayingItem?.playbackDuration {
-            songTotalTime.text = "- \(convert(toMinutes: duration - musicPlayer.currentPlaybackTime))"
+        songCurrentTime.text = convert(toMinutes: Musa.player.currentPlaybackTime)
+        if let duration = Musa.player.nowPlayingItem?.playbackDuration {
+            songTotalTime.text = "- \(convert(toMinutes: duration - Musa.player.currentPlaybackTime))"
         } else {
             songTotalTime.text = "-"
         }
@@ -98,26 +87,21 @@ class PlayerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        musicPlayer.stop()
-        musicPlayer.setQueue(with: Musa.default.query[self.ancestor]!)
-        musicPlayer.nowPlayingItem = Musa.default.query[self.ancestor]!.items?[musicIndex]
-        musicPlayer.play()
-        
         
         // FIXME: should not be an static CGSIZE!!!
-        songImage.image = musicPlayer.nowPlayingItem?.artwork?.image(at: CGSize(width: 300, height: 300))
-        songName.text = (musicPlayer.nowPlayingItem?.title != nil) ? musicPlayer.nowPlayingItem?.title : ""
-        groupName.text = (musicPlayer.nowPlayingItem?.artist != nil) ? musicPlayer.nowPlayingItem?.artist : ""
+        songImage.image = Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 300, height: 300))
+        songName.text = (Musa.player.nowPlayingItem?.title != nil) ? Musa.player.nowPlayingItem?.title : ""
+        groupName.text = (Musa.player.nowPlayingItem?.artist != nil) ? Musa.player.nowPlayingItem?.artist : ""
         
         //https://developer.apple.com/library/content/documentation/Audio/Conceptual/iPodLibraryAccess_Guide/UsingMediaPlayback/UsingMediaPlayback.html
+        
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerController.getNowPlayingItem), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
-        // FIXME: MPMusicPlayerControllerPlaybackStateDidChangeNotification
-        // beginGeneratingPlaybackNotifications
+        NotificationCenter.default.addObserver(self, selector: #selector(PlayerController.getNowPlayingItem), name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: nil)
         
         let displayLink = CADisplayLink(target: self, selector: (#selector(PlayerController.updateSliderProgress)))
         displayLink.add(to: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
-        musicPlayer.beginGeneratingPlaybackNotifications()
-        progressSlider.maximumValue = Float(Int((musicPlayer.nowPlayingItem?.playbackDuration)!))
+        
+        progressSlider.maximumValue = Float(Int((Musa.player.nowPlayingItem?.playbackDuration)!))
         
     }
     

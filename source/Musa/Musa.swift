@@ -16,6 +16,7 @@ import MediaPlayer
 
 class Musa {
     static let `default` = Musa()
+    static let `player`  = MPMusicPlayerController.systemMusicPlayer()
     
     var query = [String:MPMediaQuery]()
 
@@ -29,9 +30,11 @@ class Musa {
         self.query["Playlists"]     = MPMediaQuery.playlists()
         self.query["Composers"]     = MPMediaQuery.composers()
         
+        //notifications
+        Musa.player.beginGeneratingPlaybackNotifications()
     }
     
-    // MARK: - GET functions
+    // MARK: - Media Query functions
     
     func getCollection(collection: String) -> [MPMediaItemCollection] {
         return self.query[collection]!.collections ?? []
@@ -112,5 +115,41 @@ class Musa {
         self.query[inCollection]!.removeFilterPredicate(predicate)
         self.query[inCollection]?.groupingType = groupBy
     }
+    
+    // MARK: - Player functions
+    
+    func startPlaying(musaQuery: String, index: Int) {
+        Musa.player.stop()
+        // FIXME: BUG: there's a warning:
+        // [SDKLibrary] Unknown comparison type 109.
+        Musa.player.setQueue(with: self.query[musaQuery]!)
+        Musa.player.nowPlayingItem = self.query[musaQuery]?.items?[index]
+        Musa.player.play()
+    }
+    
+    func nextSong() {
+        Musa.player.skipToNextItem()
+    }
+    
+    func previousSong() {
+        Musa.player.skipToPreviousItem()
+    }
+
+    func playPauseSong() {
+        if Musa.player.playbackState == MPMusicPlaybackState.playing {
+            Musa.player.pause()
+        } else {
+            Musa.player.play()
+        }
+    }
+    
+    func isPlaying() -> Bool {
+        return Musa.player.playbackState == MPMusicPlaybackState.playing
+    }
+    
+    func isStopped() -> Bool {
+        return Musa.player.playbackState == MPMusicPlaybackState.stopped
+    }
+
 
 }

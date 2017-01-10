@@ -98,6 +98,7 @@ class ArtistsListController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    // MARK: Go back.
     override func didMove(toParentViewController parent: UIViewController?) {
         if (!(parent?.isEqual(self.parent) ?? false)) {
             Musa.default.removeSearch(inCollection: self.ancestor, searchBy: "Genre", search: (genreArtists?.items?.first?.genrePersistentID)!)
