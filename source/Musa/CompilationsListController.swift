@@ -1,5 +1,5 @@
 //
-//  SongsListController.swift
+//  CompilationsListController.swift
 //  Musa
 //
 //  Created by Rubén Gómez Olivencia
@@ -14,39 +14,41 @@
 import UIKit
 import MediaPlayer
 
-class SongsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CompilationsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var songsTable: UITableView!
-    var selectedRow = 0
     
-    // from SEGUE
+    @IBOutlet weak var compilationsTable: UITableView!
+    
+    var selectedRow = 0
     var fromSegue = false
-    var ancestor = "Songs"
-    var albumSongs: MPMediaQuery?
-
-
+    var ancestor = "Compilations"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        songsTable.delegate = self
-        songsTable.dataSource = self
+        // Do any additional setup after loading the view.
+        compilationsTable.delegate = self
+        compilationsTable.dataSource = self
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 
-    
     // MARK: - Table View
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = songsTable.dequeueReusableCell(withIdentifier: "SongsCell", for: indexPath) as?  SongsCell {
+        if let cell = compilationsTable.dequeueReusableCell(withIdentifier: "CompilationsCell", for: indexPath) as?  CompilationsCell {
             let currentLocation = Musa.default.getCollectionQuerySections(collection: self.ancestor)[indexPath.section].range.location
             let songInfo = Musa.default.getCollection(collection: self.ancestor)[indexPath.row + currentLocation].representativeItem
-            cell.updateUI(song: songInfo!)
+            cell.updateUI(compilation: songInfo!)
             return cell
         } else {
             return UITableViewCell()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Musa.default.getCollectionQuerySections(collection: self.ancestor)[section].range.length
     }
@@ -66,38 +68,35 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
     }
-
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var index = 0
         
-        if indexPath[0] != 0 {
+        if indexPath.section != 0 {
             var i = 0
-            while i < indexPath[0] {
+            while i < indexPath.section {
                 index = index + Musa.default.getCollectionQuerySections(collection: self.ancestor)[i].range.length
                 i += 1
             }
         }
-        self.selectedRow = index + indexPath[1]
-        tableView.deselectRow(at: indexPath, animated: true)
         
-        Musa.default.startPlaying(musaQuery: self.ancestor, index: self.selectedRow)
+        self.selectedRow = index + indexPath.row
+        let compilationInfo = Musa.default.getCollection(collection: self.ancestor)[self.selectedRow]
+        let compilationSongs = Musa.default.search(inCollection: self.ancestor, searchBy: "Compilations", search: (compilationInfo.representativeItem?.albumPersistentID)!)
+        performSegue(withIdentifier: "getSongsFromCompilation", sender: compilationSongs)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // MARK: Go back.
-    override func didMove(toParentViewController parent: UIViewController?) {
-        if (!(parent?.isEqual(self.parent) ?? false)) {
-            var searchBy = "Album"
-            var search = albumSongs?.items?.first?.albumPersistentID
-            switch self.ancestor {
-                case "Composers":
-                    searchBy = "Composers"
-                    search = albumSongs?.items?.first?.composerPersistentID
-                default:
-                    searchBy = "Album"
-                    search = albumSongs?.items?.first?.albumPersistentID
+    // MARK: Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SongsListController {
+            if let compilationSongs = sender as? MPMediaQuery {
+                destination.fromSegue  = true
+                destination.albumSongs = compilationSongs
+                destination.ancestor = self.ancestor
+                destination.navigationItem.title = compilationSongs.collections?.first?.representativeItem?.albumTitle
             }
-            Musa.default.removeSearch(inCollection: self.ancestor, searchBy: searchBy, search: search!)
         }
     }
 

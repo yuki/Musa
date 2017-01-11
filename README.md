@@ -5,13 +5,13 @@
 [![Xcode 8.0+](https://img.shields.io/badge/Xcode-8.0-blue.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## About
-After upgrading to iOS 10, Apple's Music.app changed too much for me. The new version of the app gives more importance to the social media than to music.
+Since iOS 7, Apple has made a lot of modifications in its Music.app for iPhone and iPod. The new versions of the app gives more importance to the social media than to music, specially since iOS 9.
 
-I have never made any program in iOS, so this is my opportunity to learn how to code in Swift.
+I have never made any program for iOS, so this is my opportunity to learn how to code in [Swift](https://swift.org/) for the iPhone.
 
-My intention is to create a replacement for the original Music.app, to be more like the one that come with  iOS 9 and before.
+My intention is to create a replacement for the original Music.app, to be more like the one that came with  iOS 7 and before.
 
-This is my first iOS app, so you're welcome to fork the project and send me requests :D
+This is my first iOS app, so you're welcome to fork the project and send me pull-requests 😄
 
 ## Requirements
 The source code is into **source** folder ;-)
@@ -20,9 +20,19 @@ The source code is into **source** folder ;-)
 * Xcode 8.0+
 
 ## TO DO
- * Basic functionality, like iOS 6
- * Coverflow? (can be a good feature)
- * Storage
+ * Basic functionality, like iOS 6 (for me, the best version)
+ * Landscape mode
+   * Coverflow? (can be a good feature, or show albums like in iOS 7)
+   * Make the player reorders itself
+ * Gestures, to play next/previous song, to minimize the mini-player...
+ * Extra features (all suggestions are welcome 😁 )
+
+## Thanks
+Thanks to [Sergio García](https://github.com/sergiog90) for his help for answering all my newbie questions and his modifications to the code.
+
+
 
 ## License
 This software is under GNU GPL v3 license. See **LICENSE** file for more info.
+
+The icons used in the app are from [icons8](https://icons8.com/). The license in the web. You can see all used icons in the **Resources.md** file

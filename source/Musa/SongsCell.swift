@@ -18,6 +18,7 @@ class SongsCell: UITableViewCell {
     @IBOutlet weak var songImage: UIImageView!
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var songGroupAndAlbum: UILabel!
+    @IBOutlet weak var songTrackNumber: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,7 @@ class SongsCell: UITableViewCell {
     func updateUI(song: MPMediaItem){
         songImage.image = song.artwork?.image(at: songImage.intrinsicContentSize)
         songTitle.text = song.title
+        songTrackNumber.text = (song.albumTrackNumber != nil) ? "\(song.albumTrackNumber)" : ""
         songGroupAndAlbum.text = "\((song.artist != nil) ? song.artist! : "" ) - \((song.albumTitle != nil) ? song.albumTitle! : "" )"
     }
 

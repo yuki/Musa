@@ -74,10 +74,15 @@ class Musa {
                 property = MPMediaItemPropertyAlbumPersistentID
                 groupBy  = MPMediaGrouping.title
             //FIXME: how to search by playlist?
-            //case "Playlist":
-            //    property = MPMediaItemPropertyGenrePersistentID
-            case "Compilation":
-                property = MPMediaItemPropertyIsCompilation
+            case "Playlists":
+                property = MPMediaPlaylistPropertyPersistentID
+                groupBy  = MPMediaGrouping.title
+            case "Compilations":
+                property = MPMediaItemPropertyAlbumPersistentID
+                groupBy = MPMediaGrouping.title
+            case "Composers":
+                property = MPMediaItemPropertyComposerPersistentID
+                groupBy = MPMediaGrouping.title
             default:
                 property = MPMediaItemPropertyArtistPersistentID
                 groupBy  = MPMediaGrouping.album
@@ -103,10 +108,15 @@ class Musa {
                 property = MPMediaItemPropertyAlbumPersistentID
                 groupBy  = MPMediaGrouping.album
             //FIXME: how to search by playlist?
-            //case "Playlist":
-            //    property = MPMediaItemPropertyGenrePersistentID
-            case "Compilation":
-                property = MPMediaItemPropertyIsCompilation
+            case "Playlist":
+                property = MPMediaItemPropertyAlbumPersistentID
+                groupBy  = MPMediaGrouping.playlist
+            case "Compilations":
+                property = MPMediaItemPropertyAlbumPersistentID
+                groupBy = MPMediaGrouping.album
+            case "Composers":
+                property = MPMediaItemPropertyComposerPersistentID
+                groupBy = MPMediaGrouping.composer
             default:
                 property = MPMediaItemPropertyArtistPersistentID
                 groupBy  = MPMediaGrouping.album
@@ -142,14 +152,69 @@ class Musa {
             Musa.player.play()
         }
     }
-    
+
     func isPlaying() -> Bool {
         return Musa.player.playbackState == MPMusicPlaybackState.playing
     }
-    
+
     func isStopped() -> Bool {
         return Musa.player.playbackState == MPMusicPlaybackState.stopped
     }
 
+    func getPlayPauseImage() -> UIImage {
+        if Musa.player.playbackState == MPMusicPlaybackState.playing {
+            return UIImage(named: "pause")!
+        } else {
+            return UIImage(named: "play")!
+        }
+    }
+
+    func shuffleSongs() {
+        if Musa.player.shuffleMode == MPMusicShuffleMode.off {
+            Musa.player.shuffleMode = MPMusicShuffleMode.songs
+        } else {
+            Musa.player.shuffleMode = MPMusicShuffleMode.off
+        }
+    }
+
+    func isShuffle() -> Bool {
+        return Musa.player.shuffleMode == MPMusicShuffleMode.songs
+    }
+
+    func updateShuffleButton(shuffleButton: UIButton) {
+        if Musa.player.shuffleMode == MPMusicShuffleMode.off {
+            shuffleButton.tintColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            shuffleButton.backgroundColor = UIColor.white
+        } else {
+            shuffleButton.tintColor = UIColor.white
+            shuffleButton.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+        }
+    }
+
+    func repeatMode() {
+        if Musa.player.repeatMode == MPMusicRepeatMode.none {
+            Musa.player.repeatMode = MPMusicRepeatMode.all
+        } else if Musa.player.repeatMode == MPMusicRepeatMode.all {
+            Musa.player.repeatMode = MPMusicRepeatMode.one
+        } else {
+            Musa.player.repeatMode = MPMusicRepeatMode.none
+        }
+    }
+
+    func updateRepeatButton(repeatButton: UIButton) {
+        if Musa.player.repeatMode == MPMusicRepeatMode.none {
+            repeatButton.tintColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            repeatButton.backgroundColor = UIColor.white
+            repeatButton.setBackgroundImage(UIImage(named: "repeat")!, for: UIControlState.normal)
+        } else if Musa.player.repeatMode == MPMusicRepeatMode.one {
+            repeatButton.tintColor = UIColor.white
+            repeatButton.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            repeatButton.setBackgroundImage(UIImage(named: "repeat-one")!, for: UIControlState.normal)
+        } else {
+            repeatButton.tintColor = UIColor.white
+            repeatButton.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            repeatButton.setBackgroundImage(UIImage(named: "repeat")!, for: UIControlState.normal)
+        }
+    }
 
 }

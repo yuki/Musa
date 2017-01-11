@@ -2,9 +2,14 @@
 //  MiniPlayerViewController.swift
 //  Musa
 //
-//  Created by Rubén Gómez Olivencia on 10/1/17.
-//  Copyright © 2017 Rubén Gómez Olivencia. All rights reserved.
+//  Created by Rubén Gómez Olivencia
+//  https://github.com/yuki/Musa
 //
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version
 
 import UIKit
 import MediaPlayer
@@ -26,7 +31,8 @@ class MiniPlayerViewController: UIViewController {
     
     @IBAction func tapButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.present(storyboard.instantiateViewController(withIdentifier: "PlayerView"), animated: true, completion: nil)
+        
+        self.present(storyboard.instantiateViewController(withIdentifier: "PlayerViewController"), animated: true, completion: nil)
     }
 
     // MARK: show
@@ -57,7 +63,7 @@ class MiniPlayerViewController: UIViewController {
             songImage.image = Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
             songNameLabel.text = (Musa.player.nowPlayingItem?.title != nil) ? Musa.player.nowPlayingItem?.title : ""
             
-            playPauseButton.setTitle(Musa.default.isPlaying() ? "Pause" : "Play", for: UIControlState.normal)
+            playPauseButton.setImage(Musa.default.getPlayPauseImage(), for: UIControlState.normal)
         }
     }
 
