@@ -53,6 +53,7 @@ class MiniPlayerViewController: UIViewController {
         if Musa.default.isStopped() {
             self.view.isHidden = true
         } else {
+            self.view.isHidden = false
             songImage.image = Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
             songNameLabel.text = (Musa.player.nowPlayingItem?.title != nil) ? Musa.player.nowPlayingItem?.title : ""
             
