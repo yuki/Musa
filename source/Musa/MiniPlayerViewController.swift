@@ -35,6 +35,22 @@ class MiniPlayerViewController: UIViewController {
         
         self.present(storyboard.instantiateViewController(withIdentifier: "PlayerViewController"), animated: true, completion: nil)
     }
+    
+    @IBOutlet var respondToGesture: UIGestureRecognizer!
+    
+    func respondToSwipeGesture(_ sender: UIGestureRecognizer) {
+        if let swipeGesture = sender as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                Musa.default.nextSong()
+            case UISwipeGestureRecognizerDirection.left:
+                Musa.default.previousSong()
+            default:
+                print("III")
+                break
+            }
+        }
+    }
 
     // MARK: show
     
@@ -49,8 +65,24 @@ class MiniPlayerViewController: UIViewController {
         
         songNameLabel.fadeLength = 30.0
         songNameLabel.trailingBuffer = 30.0
-
         
+        // gestures
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        // take care of buttons
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.isExclusiveTouch = true
+            }
+        }
+
+        // Notifications
         
         NotificationCenter.default.addObserver(self, selector: #selector(MiniPlayerViewController.setVisible), name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(MiniPlayerViewController.setVisible), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)

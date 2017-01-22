@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nWm-GA-662" id="z5Y-7a-jVF">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axs-R3-DNd" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -107,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wwt-hD-Tsc" id="gHk-CP-UKT">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k5v-9h-sQR">
@@ -206,7 +206,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bmo-L2-NCz" id="3BF-LM-eGE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-7e-rSs">
@@ -311,7 +311,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vLy-Al-yub" id="0z5-8v-OwH">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l60-LP-IDG">
@@ -642,6 +642,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Hg9-hw-4J4" firstAttribute="leading" secondItem="SJN-qa-8Nm" secondAttribute="leading" id="7WI-VF-sm2"/>
                             <constraint firstItem="aRb-52-LtL" firstAttribute="top" secondItem="Hg9-hw-4J4" secondAttribute="bottom" id="QDM-Dx-Ote"/>
@@ -659,6 +660,7 @@
                         <outlet property="prevButton" destination="yxj-2l-unq" id="bkM-hK-mwb"/>
                         <outlet property="progressSlider" destination="fpZ-Ck-AUa" id="yR8-3y-ctI"/>
                         <outlet property="repeatButton" destination="GSW-id-mJd" id="O3i-6T-rY7"/>
+                        <outlet property="respondToGesture" destination="TW8-jC-TUt" id="5oZ-HU-7Ci"/>
                         <outlet property="shuffleButton" destination="cxb-6r-jXd" id="h2P-bP-04p"/>
                         <outlet property="songCurrentTime" destination="MoD-5z-VnB" id="n5W-0n-6hz"/>
                         <outlet property="songImage" destination="nQk-9X-L8M" id="Fbm-Ow-0uk"/>
@@ -668,6 +670,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ms3-kw-d18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <gestureRecognizer id="TW8-jC-TUt"/>
             </objects>
             <point key="canvasLocation" x="-1255.2" y="2850.2248875562223"/>
         </scene>
@@ -715,7 +718,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="76i-kz-B7e" id="ct5-Mn-2ne">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-wo-gXk" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -779,7 +782,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgN-ga-lbr" id="Tsp-Aj-7M8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compilation Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4u9-YF-hhM" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -851,7 +854,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N72-Ju-cEh" id="QCz-xv-76k">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHE-VF-hsn" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -1104,11 +1107,13 @@
                     </view>
                     <connections>
                         <outlet property="playPauseButton" destination="vNk-Gk-dSS" id="qgY-uG-afp"/>
+                        <outlet property="respondToGesture" destination="MSn-ff-r9W" id="OC7-2p-Bqw"/>
                         <outlet property="songImage" destination="3MB-wz-56R" id="zWF-ej-hMT"/>
                         <outlet property="songNameLabel" destination="vx0-ab-4Yn" id="aKQ-Na-Bjk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5U-cl-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <gestureRecognizer id="MSn-ff-r9W"/>
             </objects>
             <point key="canvasLocation" x="-1255.2" y="2397.3013493253375"/>
         </scene>

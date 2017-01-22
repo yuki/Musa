@@ -74,6 +74,30 @@ class PlayerViewController: UIViewController {
         return true
     }
     
+    //MASK: gestures
+    @IBOutlet var respondToGesture: UIGestureRecognizer!
+    
+    func respondToSwipeGesture(_ sender: UIGestureRecognizer) {
+        if let swipeGesture = sender as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                Musa.default.nextSong()
+            case UISwipeGestureRecognizerDirection.down:
+                self.dismiss(animated: true, completion: nil)
+            case UISwipeGestureRecognizerDirection.left:
+                Musa.default.previousSong()
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                print("III")
+                break
+            }
+        }
+    }
+
+
+    // MARK: show
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -82,6 +106,31 @@ class PlayerViewController: UIViewController {
         songName.trailingBuffer = 30.0
         groupName.fadeLength = 30.0
         groupName.trailingBuffer = 30.0
+        
+        // gestures
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
+        
+        // not used,
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        // take care of buttons
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.isExclusiveTouch = true
+            }
+        }
         
         //https://developer.apple.com/library/content/documentation/Audio/Conceptual/iPodLibraryAccess_Guide/UsingMediaPlayback/UsingMediaPlayback.html
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerViewController.updatePlayerView), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
