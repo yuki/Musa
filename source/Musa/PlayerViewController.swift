@@ -95,7 +95,8 @@ class PlayerViewController: UIViewController {
         playButton.setImage(Musa.default.getPlayPauseImage(), for: UIControlState.normal)
         
         // FIXME: should not be an static CGSIZE!!!
-        songImage.image = Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
+        songImage.image = (Musa.player.nowPlayingItem?.artwork != nil) ? Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240)) : UIImage(named: "songs")
+        
         songName.text = (Musa.player.nowPlayingItem?.title != nil) ? Musa.player.nowPlayingItem?.title : ""
         groupName.text = (Musa.player.nowPlayingItem?.artist != nil) ? Musa.player.nowPlayingItem?.artist : ""
 

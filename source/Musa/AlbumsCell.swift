@@ -25,7 +25,7 @@ class AlbumsCell: UITableViewCell {
     }
 
     func updateUI(album: MPMediaItem){
-        albumImage.image = album.artwork?.image(at: albumImage.intrinsicContentSize)
+        albumImage.image = (album.artwork != nil) ? album.artwork?.image(at:albumImage.intrinsicContentSize) : UIImage(named: "albums")
         albumTitle.text = album.albumTitle!
         groupName.text = album.artist!
     }

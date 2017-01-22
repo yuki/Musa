@@ -31,7 +31,7 @@ class SongsCell: UITableViewCell {
     //}
     
     func updateUI(song: MPMediaItem){
-        songImage.image = song.artwork?.image(at: songImage.intrinsicContentSize)
+        songImage.image = (song.artwork != nil) ? song.artwork?.image(at:songImage.intrinsicContentSize) : UIImage(named: "songs")
         songTitle.text = song.title
         songTrackNumber.text = (song.albumTrackNumber != nil) ? "\(song.albumTrackNumber)" : ""
         songGroupAndAlbum.text = "\((song.artist != nil) ? song.artist! : "" ) - \((song.albumTitle != nil) ? song.albumTitle! : "" )"

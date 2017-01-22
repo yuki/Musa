@@ -60,7 +60,8 @@ class MiniPlayerViewController: UIViewController {
             self.view.isHidden = true
         } else {
             self.view.isHidden = false
-            songImage.image = Musa.player.nowPlayingItem?.artwork?.image(at: CGSize(width: 240, height: 240))
+            songImage.image = (Musa.player.nowPlayingItem?.artwork != nil) ? Musa.player.nowPlayingItem?.artwork?.image(at:songImage.intrinsicContentSize) : UIImage(named: "songs")
+
             songNameLabel.text = (Musa.player.nowPlayingItem?.title != nil) ? Musa.player.nowPlayingItem?.title : ""
             
             playPauseButton.setImage(Musa.default.getPlayPauseImage(), for: UIControlState.normal)
