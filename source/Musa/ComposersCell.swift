@@ -13,14 +13,17 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class ComposersCell: UITableViewCell {
 
-    @IBOutlet weak var composersName: UILabel!
+    @IBOutlet weak var composersName: MarqueeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        composersName.fadeLength = 30.0
+        composersName.trailingBuffer = 30.0
     }
     
     func updateUI(composer: MPMediaItem){

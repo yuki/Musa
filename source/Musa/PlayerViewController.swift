@@ -13,6 +13,7 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class PlayerViewController: UIViewController {
 
@@ -23,8 +24,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var songCurrentTime: UILabel!
     @IBOutlet weak var songTotalTime: UILabel!
     
-    @IBOutlet weak var songName: UILabel!
-    @IBOutlet weak var groupName: UILabel!
+    @IBOutlet weak var songName: MarqueeLabel!
+    @IBOutlet weak var groupName: MarqueeLabel!
     
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -76,6 +77,11 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        songName.fadeLength = 30.0
+        songName.trailingBuffer = 30.0
+        groupName.fadeLength = 30.0
+        groupName.trailingBuffer = 30.0
         
         //https://developer.apple.com/library/content/documentation/Audio/Conceptual/iPodLibraryAccess_Guide/UsingMediaPlayback/UsingMediaPlayback.html
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerViewController.updatePlayerView), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)

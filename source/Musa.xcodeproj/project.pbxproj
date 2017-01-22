@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		488658214E83889DD0567CB4 /* Pods_Musa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3FBD5C0BF526FE4CB00D9D /* Pods_Musa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		B60637571E2529E8003EFBCE /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60637561E2529E8003EFBCE /* MiniPlayerViewController.swift */; };
 		B60CD6F41E0B2C3400C7CBE3 /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */; };
+		B61DA0161E350F8600BB04FB /* MarqueeLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61DA0151E350F8600BB04FB /* MarqueeLabel.framework */; };
 		B64CA9B91E146DAD001631FD /* ArtistsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CA9B81E146DAD001631FD /* ArtistsListController.swift */; };
 		B65FF6AC1E2BF4FC00FB9DDD /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65FF6AB1E2BF4FC00FB9DDD /* PlayerViewController.swift */; };
 		B699FD1B1E238E3200C86AB9 /* GenresListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FD1A1E238E3200C86AB9 /* GenresListController.swift */; };
@@ -29,11 +31,15 @@
 		B6E0E3B11E2AD63C009FE5AE /* CompilationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E3B01E2AD63C009FE5AE /* CompilationsCell.swift */; };
 		B6E0E3B31E2AEF77009FE5AE /* ComposersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E3B21E2AEF77009FE5AE /* ComposersCell.swift */; };
 		B6E0E3B51E2AEFA3009FE5AE /* ComposersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E3B41E2AEFA3009FE5AE /* ComposersListController.swift */; };
+		B6F1B6CA1E3511D90047F0F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F1B6C91E3511D90047F0F0 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38E8CA1E91A3C10648BFD7A2 /* Pods-Musa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musa/Pods-Musa.debug.xcconfig"; sourceTree = "<group>"; };
+		4CAA47D44E04B6961B735E9E /* Pods-Musa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musa.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musa/Pods-Musa.release.xcconfig"; sourceTree = "<group>"; };
 		B60637561E2529E8003EFBCE /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
 		B60CD6F31E0B2C3400C7CBE3 /* SongsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
+		B61DA0151E350F8600BB04FB /* MarqueeLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MarqueeLabel.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Musa-cbmatrlimjgtggecgvlowukwezcl/Build/Products/Debug-iphoneos/MarqueeLabel/MarqueeLabel.framework"; sourceTree = "<group>"; };
 		B64CA9B81E146DAD001631FD /* ArtistsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsListController.swift; sourceTree = "<group>"; };
 		B65FF6AB1E2BF4FC00FB9DDD /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B699FD1A1E238E3200C86AB9 /* GenresListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresListController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 		B6E0E3B01E2AD63C009FE5AE /* CompilationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompilationsCell.swift; sourceTree = "<group>"; };
 		B6E0E3B21E2AEF77009FE5AE /* ComposersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersCell.swift; sourceTree = "<group>"; };
 		B6E0E3B41E2AEFA3009FE5AE /* ComposersListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersListController.swift; sourceTree = "<group>"; };
+		B6F1B6C91E3511D90047F0F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC3FBD5C0BF526FE4CB00D9D /* Pods_Musa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +71,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F1B6CA1E3511D90047F0F0 /* QuartzCore.framework in Frameworks */,
+				B61DA0161E350F8600BB04FB /* MarqueeLabel.framework in Frameworks */,
 				B6C624911E09E4C80022D976 /* MediaPlayer.framework in Frameworks */,
+				488658214E83889DD0567CB4 /* Pods_Musa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +87,7 @@
 				B6C6247A1E09E4660022D976 /* Musa */,
 				B6C624791E09E4660022D976 /* Products */,
 				B6C6248F1E09E4C80022D976 /* Frameworks */,
+				F04DFC59E87944AC13F1B7A4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,9 +131,21 @@
 		B6C6248F1E09E4C80022D976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6F1B6C91E3511D90047F0F0 /* QuartzCore.framework */,
+				B61DA0151E350F8600BB04FB /* MarqueeLabel.framework */,
 				B6C624901E09E4C80022D976 /* MediaPlayer.framework */,
+				CC3FBD5C0BF526FE4CB00D9D /* Pods_Musa.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F04DFC59E87944AC13F1B7A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38E8CA1E91A3C10648BFD7A2 /* Pods-Musa.debug.xcconfig */,
+				4CAA47D44E04B6961B735E9E /* Pods-Musa.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6C6248C1E09E4660022D976 /* Build configuration list for PBXNativeTarget "Musa" */;
 			buildPhases = (
+				005365BE0B92868672DDB40A /* [CP] Check Pods Manifest.lock */,
 				B6C624741E09E4660022D976 /* Sources */,
 				B6C624751E09E4660022D976 /* Frameworks */,
 				B6C624761E09E4660022D976 /* Resources */,
+				C82C2834F71E4AF2001DAD94 /* [CP] Embed Pods Frameworks */,
+				3DCE506F130F0EED58069577 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +223,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		005365BE0B92868672DDB40A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3DCE506F130F0EED58069577 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musa/Pods-Musa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C82C2834F71E4AF2001DAD94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musa/Pods-Musa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6C624741E09E4660022D976 /* Sources */ = {
@@ -342,6 +417,7 @@
 		};
 		B6C6248D1E09E4660022D976 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38E8CA1E91A3C10648BFD7A2 /* Pods-Musa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -358,6 +434,7 @@
 		};
 		B6C6248E1E09E4660022D976 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CAA47D44E04B6961B735E9E /* Pods-Musa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

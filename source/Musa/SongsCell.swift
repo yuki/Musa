@@ -13,16 +13,22 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class SongsCell: UITableViewCell {
     @IBOutlet weak var songImage: UIImageView!
-    @IBOutlet weak var songTitle: UILabel!
-    @IBOutlet weak var songGroupAndAlbum: UILabel!
+    @IBOutlet weak var songTitle: MarqueeLabel!
+    @IBOutlet weak var songGroupAndAlbum: MarqueeLabel!
     @IBOutlet weak var songTrackNumber: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        songTitle.fadeLength = 30.0
+        songTitle.trailingBuffer = 30.0
+        songGroupAndAlbum.fadeLength = 30.0
+        songGroupAndAlbum.trailingBuffer = 30.0
+
     }
 
     //override func setSelected(_ selected: Bool, animated: Bool) {

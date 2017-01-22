@@ -13,12 +13,13 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class MiniPlayerViewController: UIViewController {
     
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var songImage: UIImageView!
-    @IBOutlet weak var songNameLabel: UILabel!
+    @IBOutlet weak var songNameLabel: MarqueeLabel!
     
     @IBAction func tapPlayPauseButton(_ sender: UIButton) {
         Musa.default.playPauseSong()
@@ -45,6 +46,10 @@ class MiniPlayerViewController: UIViewController {
         blurView.frame = self.view.bounds
         self.view.addSubview(blurView)
         self.view.sendSubview(toBack: blurView)
+        
+        songNameLabel.fadeLength = 30.0
+        songNameLabel.trailingBuffer = 30.0
+
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(MiniPlayerViewController.setVisible), name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: nil)

@@ -13,13 +13,17 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class GenresCell: UITableViewCell {
 
-    @IBOutlet weak var genreName: UILabel!
+    @IBOutlet weak var genreName: MarqueeLabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        genreName.fadeLength = 30.0
+        genreName.trailingBuffer = 30.0
     }
     
     func updateUI(genre: MPMediaItem){

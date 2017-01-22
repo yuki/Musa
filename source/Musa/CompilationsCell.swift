@@ -13,15 +13,18 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class CompilationsCell: UITableViewCell {
 
-    @IBOutlet weak var compilationName: UILabel!
+    @IBOutlet weak var compilationName: MarqueeLabel!
     @IBOutlet weak var compilationImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        compilationName.fadeLength = 30.0
+        compilationName.trailingBuffer = 30.0
     }
 
 //    override func setSelected(_ selected: Bool, animated: Bool) {

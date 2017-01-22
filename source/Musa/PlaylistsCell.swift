@@ -13,14 +13,17 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class PlaylistsCell: UITableViewCell {
 
-    @IBOutlet weak var playlistName: UILabel!
+    @IBOutlet weak var playlistName: MarqueeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        playlistName.fadeLength = 30.0
+        playlistName.trailingBuffer = 30.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

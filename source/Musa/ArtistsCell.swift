@@ -13,15 +13,18 @@
 
 import UIKit
 import MediaPlayer
+import MarqueeLabel
 
 class ArtistsCell: UITableViewCell {
 
     @IBOutlet weak var artistImage: UIImageView!
-    @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var artistName: MarqueeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        artistName.fadeLength = 30.0
+        artistName.trailingBuffer = 30.0
     }
     
     func updateUI(artist: MPMediaItem){
