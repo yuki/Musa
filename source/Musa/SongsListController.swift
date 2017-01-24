@@ -17,6 +17,16 @@ import MediaPlayer
 class SongsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var songsTable: UITableView!
+    
+    @IBAction func pressShuffleBarButton(_ sender: UIBarButtonItem) {
+        Musa.default.startRandomPlaying(musaQuery: self.ancestor)
+    }
+    
+    @IBAction func pressPlayBarButton(_ sender: UIBarButtonItem) {
+        Musa.default.startPlaying(musaQuery: self.ancestor, index: 0)
+        print(self.ancestor)
+    }
+    
     var selectedRow = 0
     
     // from SEGUE

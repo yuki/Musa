@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -76,7 +77,13 @@
                             <constraint firstItem="9OQ-dC-ezj" firstAttribute="top" secondItem="ZbH-9K-TgX" secondAttribute="bottom" id="zU9-7j-zGL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Genres" id="Ot4-kT-m8L"/>
+                    <navigationItem key="navigationItem" title="Genres" id="Ot4-kT-m8L">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="m7R-Gq-Gcp">
+                            <connections>
+                                <action selector="pressShuffleBarButton:" destination="J9j-Xr-Lyw" id="vdE-FU-zLE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="genresTable" destination="ZbH-9K-TgX" id="vmc-Ij-BtW"/>
@@ -166,7 +173,13 @@
                             <constraint firstItem="LpA-Ue-J4T" firstAttribute="leading" secondItem="anV-Qz-gki" secondAttribute="leading" id="qIZ-1k-4X7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Artists" id="dC3-SJ-StS"/>
+                    <navigationItem key="navigationItem" title="Artists" id="dC3-SJ-StS">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="3Y8-1c-VWr">
+                            <connections>
+                                <action selector="pressShuffleBarButton:" destination="elT-wC-2lt" id="PjM-5m-xhf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="artistsTable" destination="LpA-Ue-J4T" id="7IC-OM-S8u"/>
@@ -280,7 +293,13 @@
                             <constraint firstItem="hpb-62-2xy" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="npK-sO-PPK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Albums" id="erA-km-iDN"/>
+                    <navigationItem key="navigationItem" title="Albums" id="erA-km-iDN">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="Xjt-6b-K0a">
+                            <connections>
+                                <action selector="pressShuffleBarButton:" destination="9pv-A4-QxB" id="fkp-ZS-Zy0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="albumsTable" destination="hpb-62-2xy" id="X0e-9y-6bE"/>
@@ -401,7 +420,20 @@
                             <constraint firstItem="hRI-jO-7O5" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="elb-Vk-GOv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Songs" id="kff-61-mrI"/>
+                    <navigationItem key="navigationItem" title="Songs" id="kff-61-mrI">
+                        <rightBarButtonItems>
+                            <barButtonItem image="shuffle" id="0m2-io-aLq">
+                                <connections>
+                                    <action selector="pressShuffleBarButton:" destination="8rJ-Kc-sve" id="eTe-Sy-2Ld"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="play" id="yXK-J0-q0G">
+                                <connections>
+                                    <action selector="pressPlayBarButton:" destination="8rJ-Kc-sve" id="pFn-Dn-sdK"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="songsTable" destination="rGV-26-gb0" id="dZF-Ca-Z5Y"/>
@@ -750,7 +782,13 @@
                             <constraint firstItem="tAd-nG-LRJ" firstAttribute="top" secondItem="gCR-0i-go3" secondAttribute="top" id="zot-DU-fzV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Playlists" id="L9V-Km-hYa"/>
+                    <navigationItem key="navigationItem" title="Playlists" id="L9V-Km-hYa">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="V1q-1N-Fes">
+                            <connections>
+                                <action selector="pressShuffleBarButton:" destination="z6w-qJ-SMQ" id="xmj-Br-H6y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="playlistsTable" destination="tAd-nG-LRJ" id="Zqv-iC-cbc"/>
@@ -782,7 +820,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgN-ga-lbr" id="Tsp-Aj-7M8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compilation Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4u9-YF-hhM" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -820,10 +858,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQo-0b-b6A">
+                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GbO-mE-fDr"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Jkw-OS-zeT" kind="embed" id="kVt-ia-qKG"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pQo-0b-b6A" secondAttribute="trailing" id="AF5-KS-huk"/>
+                            <constraint firstItem="Tl9-QE-cc4" firstAttribute="top" secondItem="pQo-0b-b6A" secondAttribute="bottom" id="IdO-nS-zEL"/>
+                            <constraint firstItem="pQo-0b-b6A" firstAttribute="leading" secondItem="sBN-m3-ggq" secondAttribute="leading" id="c1n-4s-GJx"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Compilations" id="9dG-a6-XAU"/>
+                    <navigationItem key="navigationItem" title="Compilations" id="9dG-a6-XAU">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="24J-db-ywv">
+                            <connections>
+                                <action selector="pressShuffleBarButton:" destination="yuq-EH-JTq" id="iEo-j3-EdW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="compilationsTable" destination="RJ7-gf-aVF" id="zJn-56-wiY"/>
@@ -832,7 +890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMy-Xx-lnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="671"/>
+            <point key="canvasLocation" x="653.60000000000002" y="669.71514242878561"/>
         </scene>
         <!--Composers-->
         <scene sceneID="vqr-nj-GJb">
@@ -854,7 +912,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N72-Ju-cEh" id="QCz-xv-76k">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHE-VF-hsn" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -877,16 +935,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEk-qj-wTI">
+                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="iTI-Gh-DE7"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Jkw-OS-zeT" kind="embed" id="DQo-sv-aL2"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cEk-qj-wTI" secondAttribute="trailing" id="Bn7-2s-xtU"/>
                             <constraint firstItem="Kwr-sz-1cu" firstAttribute="top" secondItem="av0-fQ-hzL" secondAttribute="bottom" id="Cbt-WL-D7Y"/>
+                            <constraint firstItem="cEk-qj-wTI" firstAttribute="leading" secondItem="kEa-RX-6wS" secondAttribute="leading" id="Cg5-ww-e3A"/>
                             <constraint firstAttribute="trailing" secondItem="av0-fQ-hzL" secondAttribute="trailing" id="EMH-T2-iXI"/>
                             <constraint firstItem="av0-fQ-hzL" firstAttribute="top" secondItem="kEa-RX-6wS" secondAttribute="top" id="KQJ-wl-skE"/>
                             <constraint firstItem="av0-fQ-hzL" firstAttribute="leading" secondItem="kEa-RX-6wS" secondAttribute="leading" id="hxx-Wv-LKu"/>
+                            <constraint firstItem="Kwr-sz-1cu" firstAttribute="top" secondItem="cEk-qj-wTI" secondAttribute="bottom" id="iMu-Jc-aah"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Composers" id="S6F-YE-Knu"/>
+                    <navigationItem key="navigationItem" title="Composers" id="S6F-YE-Knu">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="o2m-hj-JQC">
+                            <connections>
+                                <action selector="pressShuffleBarButton:" destination="h0B-AU-Xhf" id="Cj5-U3-VhU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="composersTable" destination="av0-fQ-hzL" id="4XJ-cv-4yQ"/>
@@ -1171,13 +1247,13 @@
         <image name="playlists" width="33" height="33"/>
         <image name="previous" width="50" height="50"/>
         <image name="repeat" width="50" height="50"/>
-        <image name="shuffle" width="50" height="50"/>
+        <image name="shuffle" width="24" height="24"/>
         <image name="songs" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x0k-9J-lIC"/>
-        <segue reference="GHM-Ti-QyM"/>
         <segue reference="Iib-0Q-1PE"/>
         <segue reference="L5d-um-kRl"/>
+        <segue reference="x0k-9J-lIC"/>
+        <segue reference="DQo-sv-aL2"/>
     </inferredMetricsTieBreakers>
 </document>

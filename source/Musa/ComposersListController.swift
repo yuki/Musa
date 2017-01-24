@@ -18,6 +18,10 @@ class ComposersListController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var composersTable: UITableView!
     
+    @IBAction func pressShuffleBarButton(_ sender: UIBarButtonItem) {
+        Musa.default.startRandomPlaying(musaQuery: self.ancestor)
+    }
+
     var selectedRow = 0
     var fromSegue = false
     var ancestor = "Composers"

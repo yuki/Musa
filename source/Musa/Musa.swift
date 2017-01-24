@@ -137,6 +137,12 @@ class Musa {
         Musa.player.play()
     }
     
+    func startRandomPlaying(musaQuery: String) {
+        let count = (self.query[musaQuery]?.items?.count)!
+        let idx = Int(arc4random_uniform(UInt32(count)))
+        self.startPlaying(musaQuery: musaQuery, index: idx)
+    }
+    
     func nextSong() {
         Musa.player.skipToNextItem()
     }

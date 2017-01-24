@@ -17,6 +17,11 @@ import MediaPlayer
 class AlbumsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var albumsTable: UITableView!
+    
+    @IBAction func pressShuffleBarButton(_ sender: UIBarButtonItem) {
+        Musa.default.startRandomPlaying(musaQuery: self.ancestor)
+    }
+    
     var selectedRow = 0
     
     // from SEGUE
