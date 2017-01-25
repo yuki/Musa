@@ -50,7 +50,7 @@ class SongsListController: UIViewController, UITableViewDelegate, UITableViewDat
         if let cell = songsTable.dequeueReusableCell(withIdentifier: "SongsCell", for: indexPath) as?  SongsCell {
             let currentLocation = Musa.default.getCollectionQuerySections(collection: self.ancestor)[indexPath.section].range.location
             let songInfo = Musa.default.getCollection(collection: self.ancestor)[indexPath.row + currentLocation].representativeItem
-            cell.updateUI(song: songInfo!)
+            cell.updateUI(song: songInfo!, ancestor: self.ancestor)
             return cell
         } else {
             return UITableViewCell()

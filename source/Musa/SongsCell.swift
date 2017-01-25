@@ -36,10 +36,13 @@ class SongsCell: UITableViewCell {
         // Configure the view for the selected state
     //}
     
-    func updateUI(song: MPMediaItem){
+    func updateUI(song: MPMediaItem, ancestor: String){
         songImage.image = (song.artwork != nil) ? song.artwork?.image(at:songImage.intrinsicContentSize) : UIImage(named: "songs")
         songTitle.text = song.title
         songTrackNumber.text = (song.albumTrackNumber != nil) ? "\(song.albumTrackNumber)" : ""
+        if ancestor == "Songs" {
+            songTrackNumber.isHidden = true
+        }
         songGroupAndAlbum.text = "\((song.artist != nil) ? song.artist! : "" ) - \((song.albumTitle != nil) ? song.albumTitle! : "" )"
     }
 
