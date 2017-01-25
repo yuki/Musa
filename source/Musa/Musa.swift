@@ -134,6 +134,7 @@ class Musa {
         // [SDKLibrary] Unknown comparison type 109.
         Musa.player.setQueue(with: self.query[musaQuery]!)
         Musa.player.nowPlayingItem = self.query[musaQuery]?.items?[index]
+        Musa.player.shuffleMode = MPMusicShuffleMode.off
         Musa.player.play()
     }
     
@@ -141,6 +142,7 @@ class Musa {
         let count = (self.query[musaQuery]?.items?.count)!
         let idx = Int(arc4random_uniform(UInt32(count)))
         self.startPlaying(musaQuery: musaQuery, index: idx)
+        Musa.player.shuffleMode = MPMusicShuffleMode.songs
     }
     
     func nextSong() {
