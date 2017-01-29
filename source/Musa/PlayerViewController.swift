@@ -36,6 +36,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var repeatButton: UIButton!
     
+    @IBOutlet weak var blurEffectView: UIView!
     
     @IBOutlet weak var minimizeButton: UIButton!
     
@@ -132,9 +133,20 @@ class PlayerViewController: UIViewController {
             }
         }
         
+        //blur effect 
+        let effect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: effect)
+        blurView.frame = self.songImage.bounds
+        self.blurEffectView.addSubview(blurView)
+        self.blurEffectView.sendSubview(toBack: blurView)
+        
         //https://developer.apple.com/library/content/documentation/Audio/Conceptual/iPodLibraryAccess_Guide/UsingMediaPlayback/UsingMediaPlayback.html
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerViewController.updatePlayerView), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerViewController.updatePlayerView), name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: nil)
+        
+        // Detect device orientation
+        NotificationCenter.default.addObserver(self, selector: #selector(PlayerViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
         
         updatePlayerView()
     }
@@ -191,6 +203,15 @@ class PlayerViewController: UIViewController {
             songTotalTime.text = "- \(convert(toMinutes: duration - Musa.player.currentPlaybackTime))"
         } else {
             songTotalTime.text = "-"
+        }
+    }
+    
+    func rotated () {
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            self.blurEffectView.isHidden = true
+        }
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            self.blurEffectView.isHidden = false
         }
     }
 

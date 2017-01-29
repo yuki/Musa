@@ -467,6 +467,13 @@
                                                     <constraint firstAttribute="width" secondItem="nQk-9X-L8M" secondAttribute="height" multiplier="1:1" id="dqR-cm-p4b"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIc-VS-wQE" userLabel="blurEffect">
+                                                <rect key="frame" x="0.0" y="360" width="375" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="FmM-NY-rtD"/>
+                                                </constraints>
+                                            </view>
                                             <button opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHU-an-Aqd">
                                                 <rect key="frame" x="8" y="8" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -487,9 +494,12 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="I3J-2D-1nz" secondAttribute="height" multiplier="1:1" id="5VJ-fW-brd"/>
                                             <constraint firstAttribute="bottom" secondItem="nQk-9X-L8M" secondAttribute="bottom" id="bdn-vC-qW5"/>
+                                            <constraint firstItem="mIc-VS-wQE" firstAttribute="leading" secondItem="I3J-2D-1nz" secondAttribute="leading" id="cEN-rM-MIa"/>
+                                            <constraint firstAttribute="trailing" secondItem="mIc-VS-wQE" secondAttribute="trailing" id="fBU-Qt-K2I"/>
                                             <constraint firstItem="nQk-9X-L8M" firstAttribute="leading" secondItem="I3J-2D-1nz" secondAttribute="leading" id="njK-aD-PIh"/>
                                             <constraint firstAttribute="trailing" secondItem="nQk-9X-L8M" secondAttribute="trailing" id="rrV-Td-IPZ"/>
                                             <constraint firstItem="nQk-9X-L8M" firstAttribute="top" secondItem="I3J-2D-1nz" secondAttribute="top" id="xP3-pF-Uj1"/>
+                                            <constraint firstAttribute="bottom" secondItem="mIc-VS-wQE" secondAttribute="bottom" constant="-25" id="yQo-pV-pzl"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36l-S1-XKG">
@@ -685,6 +695,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="blurEffectView" destination="mIc-VS-wQE" id="J8q-lo-O6f"/>
                         <outlet property="groupName" destination="bWB-Ds-UUm" id="HWR-fy-Dno"/>
                         <outlet property="minimizeButton" destination="BHU-an-Aqd" id="rcl-VK-gjJ"/>
                         <outlet property="nextButton" destination="qvg-Yy-qOk" id="QKR-Zc-lgi"/>
@@ -820,7 +831,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgN-ga-lbr" id="Tsp-Aj-7M8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compilation Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4u9-YF-hhM" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -912,7 +923,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N72-Ju-cEh" id="QCz-xv-76k">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHE-VF-hsn" customClass="MarqueeLabel" customModule="MarqueeLabel">

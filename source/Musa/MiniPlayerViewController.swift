@@ -57,7 +57,7 @@ class MiniPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let effect = UIBlurEffect(style: .light)
+        let effect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: effect)
         blurView.frame = self.view.bounds
         self.view.addSubview(blurView)
