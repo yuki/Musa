@@ -16,7 +16,7 @@ import MediaPlayer
 
 class Musa {
     static let `default` = Musa()
-    static let `player`  = MPMusicPlayerController.systemMusicPlayer()
+    static let `player`  = MPMusicPlayerController.systemMusicPlayer
     
     var query = [String:MPMediaQuery]()
 
@@ -54,6 +54,14 @@ class Musa {
     
     func getCollectionSectionsCount (collection: String) -> Int {
         return self.getCollectionSections(collection: collection).count
+    }
+    
+    func getPrueba (collection: String) -> [MPMediaQuerySection]{
+        var array: [MPMediaQuerySection] = []
+        for item in self.query[collection]!.collectionSections! {
+            array.append(item)
+        }
+        return array
     }
 
 
@@ -191,11 +199,11 @@ class Musa {
 
     func updateShuffleButton(shuffleButton: UIButton) {
         if Musa.player.shuffleMode == MPMusicShuffleMode.off {
-            shuffleButton.tintColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            shuffleButton.tintColor = UIColor(red: 0/255, green: 121/255, blue: 255/255, alpha: 1)
             shuffleButton.backgroundColor = UIColor.white
         } else {
             shuffleButton.tintColor = UIColor.white
-            shuffleButton.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            shuffleButton.backgroundColor = UIColor(red: 0/255, green: 121/255, blue: 255/255, alpha: 1)
         }
     }
 
@@ -211,16 +219,16 @@ class Musa {
 
     func updateRepeatButton(repeatButton: UIButton) {
         if Musa.player.repeatMode == MPMusicRepeatMode.none {
-            repeatButton.tintColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            repeatButton.tintColor = UIColor(red: 0/255, green: 121/255, blue: 255/255, alpha: 1)
             repeatButton.backgroundColor = UIColor.white
             repeatButton.setBackgroundImage(UIImage(named: "repeat")!, for: UIControlState.normal)
         } else if Musa.player.repeatMode == MPMusicRepeatMode.one {
             repeatButton.tintColor = UIColor.white
-            repeatButton.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            repeatButton.backgroundColor = UIColor(red: 0/255, green: 121/255, blue: 255/255, alpha: 1)
             repeatButton.setBackgroundImage(UIImage(named: "repeat-one")!, for: UIControlState.normal)
         } else {
             repeatButton.tintColor = UIColor.white
-            repeatButton.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 121/255, blue: 255/255, alpha: 1)
+            repeatButton.backgroundColor = UIColor(red: 0/255, green: 121/255, blue: 255/255, alpha: 1)
             repeatButton.setBackgroundImage(UIImage(named: "repeat")!, for: UIControlState.normal)
         }
     }

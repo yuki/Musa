@@ -78,7 +78,7 @@ class PlayerViewController: UIViewController {
     //MASK: gestures
     @IBOutlet var respondToGesture: UIGestureRecognizer!
     
-    func respondToSwipeGesture(_ sender: UIGestureRecognizer) {
+    @objc func respondToSwipeGesture(_ sender: UIGestureRecognizer) {
         if let swipeGesture = sender as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
@@ -158,7 +158,7 @@ class PlayerViewController: UIViewController {
     
 
 
-    func updatePlayerView() {
+    @objc func updatePlayerView() {
         playButton.setImage(Musa.default.getPlayPauseImage(), for: UIControlState.normal)
         
         // FIXME: should not be an static CGSIZE!!!
@@ -195,7 +195,7 @@ class PlayerViewController: UIViewController {
         }
     }
     
-    func updateSliderProgress(){
+    @objc func updateSliderProgress(){
         progressSlider.setValue(Float(Musa.player.currentPlaybackTime), animated: true)
         
         songCurrentTime.text = convert(toMinutes: Musa.player.currentPlaybackTime)
@@ -206,7 +206,7 @@ class PlayerViewController: UIViewController {
         }
     }
     
-    func rotated () {
+    @objc func rotated () {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             self.blurEffectView.isHidden = true
         }

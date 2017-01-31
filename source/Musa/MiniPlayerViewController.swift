@@ -38,7 +38,7 @@ class MiniPlayerViewController: UIViewController {
     
     @IBOutlet var respondToGesture: UIGestureRecognizer!
     
-    func respondToSwipeGesture(_ sender: UIGestureRecognizer) {
+    @objc func respondToSwipeGesture(_ sender: UIGestureRecognizer) {
         if let swipeGesture = sender as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
@@ -92,7 +92,7 @@ class MiniPlayerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func setVisible() -> Void{
+    @objc func setVisible() -> Void{
         if Musa.default.isStopped() {
             self.view.isHidden = true
         } else {
