@@ -826,7 +826,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.78225453980000004" green="1" blue="0.69311110769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3MB-wz-56R" firstAttribute="leading" secondItem="CAp-8R-w0y" secondAttribute="leading" constant="8" id="FMn-my-73o"/>
                             <constraint firstItem="h1r-Kb-dCW" firstAttribute="top" secondItem="ghp-DQ-Xxk" secondAttribute="bottom" constant="12" id="M1n-9D-1nq"/>

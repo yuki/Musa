@@ -63,6 +63,12 @@ class MiniPlayerViewController: UIViewController {
         self.view.addSubview(blurView)
         self.view.sendSubview(toBack: blurView)
         
+        // top border
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.6)
+        border.backgroundColor = UIColor.lightGray.cgColor
+        self.view.layer.addSublayer(border)
+
         songNameLabel.fadeLength = 30.0
         songNameLabel.trailingBuffer = 30.0
         
