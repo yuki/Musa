@@ -16,7 +16,11 @@ import MediaPlayer
 
 class ReusableTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 59, right: 0)
+        }
+    }
 
     var selectedRow = 0
 
