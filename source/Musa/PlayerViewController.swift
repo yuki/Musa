@@ -107,6 +107,7 @@ class PlayerViewController: UIViewController {
         songName.trailingBuffer = 30.0
         groupName.fadeLength = 30.0
         groupName.trailingBuffer = 30.0
+        groupName.textColor = UIColor.MusaColor
         
         // gestures
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))

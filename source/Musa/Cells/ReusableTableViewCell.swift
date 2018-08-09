@@ -39,6 +39,7 @@ class ReusableTableViewCell: UITableViewCell {
     
     func updateUI(item: MPMediaItem, ancestor: String, parent: String){
         itemImage.image = (item.artwork != nil) ? item.artwork?.image(at:itemImage.intrinsicContentSize) : UIImage(named: ancestor.lowercased())
+        secondaryLabel.textColor = UIColor.MusaColor
         
         switch ancestor {
             case "Artists":
