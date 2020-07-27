@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B606EFC524CEDFFF0014E525 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFC424CEDFFF0014E525 /* PlayerView.swift */; };
 		B606EFC824CEF3060014E525 /* MiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFC724CEF3060014E525 /* MiniView.swift */; };
+		B606EFCD24CF222D0014E525 /* ListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFCC24CF222D0014E525 /* ListComponentView.swift */; };
+		B606EFCF24CF2BFA0014E525 /* MusaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFCE24CF2BFA0014E525 /* MusaView.swift */; };
+		B606EFD124CF30740014E525 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFD024CF30740014E525 /* MapView.swift */; };
 		B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
 		B6AEA38424C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
 		B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37124C5E0B700776B48 /* MainView.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		B606EFC424CEDFFF0014E525 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		B606EFC724CEF3060014E525 /* MiniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniView.swift; sourceTree = "<group>"; };
+		B606EFCC24CF222D0014E525 /* ListComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComponentView.swift; sourceTree = "<group>"; };
+		B606EFCE24CF2BFA0014E525 /* MusaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusaView.swift; sourceTree = "<group>"; };
+		B606EFD024CF30740014E525 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B6AEA37024C5E0B700776B48 /* MusaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusaApp.swift; sourceTree = "<group>"; };
 		B6AEA37124C5E0B700776B48 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B6AEA37224C5E0B800776B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +110,9 @@
 				B6AEA39224C5E3BD00776B48 /* ReusableView.swift */,
 				B606EFC424CEDFFF0014E525 /* PlayerView.swift */,
 				B606EFC724CEF3060014E525 /* MiniView.swift */,
+				B606EFCC24CF222D0014E525 /* ListComponentView.swift */,
+				B606EFCE24CF2BFA0014E525 /* MusaView.swift */,
+				B606EFD024CF30740014E525 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,10 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B606EFCF24CF2BFA0014E525 /* MusaView.swift in Sources */,
+				B606EFD124CF30740014E525 /* MapView.swift in Sources */,
 				B606EFC824CEF3060014E525 /* MiniView.swift in Sources */,
 				B6AEA39324C5E3BD00776B48 /* ReusableView.swift in Sources */,
 				B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */,
 				B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */,
+				B606EFCD24CF222D0014E525 /* ListComponentView.swift in Sources */,
 				B606EFC524CEDFFF0014E525 /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

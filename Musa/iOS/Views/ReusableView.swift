@@ -12,13 +12,22 @@ struct ReusableView: View {
     
     var body: some View {
         VStack {
-            Text(title)
-            List {
-                
-            }
-            Spacer()
-            MiniView()
-                .frame(height: 60.0)
+        NavigationView {
+            List(0..<5) { item in
+                if title != "Musa" {
+                    NavigationLink(destination: Text("asd")) {
+                        ListComponentView()
+                    }
+                } else {
+                    NavigationLink(destination: Text("asd")) {
+                        MusaView()
+                    }
+                }
+
+            }.navigationBarTitle(title)
+        }
+        MiniView()
+            .frame(height: 60.0)
         }
         
     }
