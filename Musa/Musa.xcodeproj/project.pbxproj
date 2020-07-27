@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B606EFC524CEDFFF0014E525 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFC424CEDFFF0014E525 /* PlayerView.swift */; };
+		B606EFC824CEF3060014E525 /* MiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFC724CEF3060014E525 /* MiniView.swift */; };
 		B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
 		B6AEA38424C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
 		B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37124C5E0B700776B48 /* MainView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B606EFC424CEDFFF0014E525 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		B606EFC724CEF3060014E525 /* MiniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniView.swift; sourceTree = "<group>"; };
 		B6AEA37024C5E0B700776B48 /* MusaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusaApp.swift; sourceTree = "<group>"; };
 		B6AEA37124C5E0B700776B48 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B6AEA37224C5E0B800776B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				B6AEA39224C5E3BD00776B48 /* ReusableView.swift */,
+				B606EFC424CEDFFF0014E525 /* PlayerView.swift */,
+				B606EFC724CEF3060014E525 /* MiniView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,9 +212,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B606EFC824CEF3060014E525 /* MiniView.swift in Sources */,
 				B6AEA39324C5E3BD00776B48 /* ReusableView.swift in Sources */,
 				B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */,
 				B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */,
+				B606EFC524CEDFFF0014E525 /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,15 @@ struct ReusableView: View {
     let title: String
     
     var body: some View {
-        Text(title)
-        
+        VStack {
+            Text(title)
+            List {
+                
+            }
+            Spacer()
+            MiniView()
+                .frame(height: 60.0)
+        }
         
     }
 }
