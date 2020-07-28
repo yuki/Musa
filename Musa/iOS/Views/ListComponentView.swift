@@ -12,7 +12,7 @@ struct ListComponentView: View {
         HStack {
             Image("Cover")
                 .resizable()
-                .frame(width: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
+                .frame(width: 50, height: 50)
                 .cornerRadius(5)
             Text("01")
             Text("Song Name")

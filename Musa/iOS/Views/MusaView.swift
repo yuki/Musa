@@ -11,23 +11,21 @@ struct MusaView: View {
     var body: some View {
         VStack() {
             MapView(latitude: 43.2686711, longitude: -2.9340121)
-                .frame(height: 300)
+                .frame(height: 200)
             Image("Cover")
+                .resizable()
+                .frame(width: 100, height: 100)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.gray, lineWidth: 4))
                 .shadow(radius: 10)
-                .offset(y: -150)
-                .padding(.bottom, -150)
-            HStack{
-                Text("Artist Title")
-                    .font(.largeTitle)
-                Text(" - Song name")
-                    .font(.title)
-            }
-            Spacer()
+                .offset(y: -110)
+                .padding(.bottom, -120)
+            
+
             Text("Some emotional text")
             Spacer()
         }
+        .navigationBarTitle("Artist Title - Song name")
     }
 }
 

@@ -14,12 +14,12 @@ struct MainView: View {
         
         TabView(selection: .constant(1)) {
             ForEach(tabs,id: \.self) { tab in
-                ReusableView(title: tab).tabItem {
+                ListAndPlayerView(title: tab,reused: false).tabItem {
                                     Text(tab)
                                     Image(tab)
                                 }.tag(1)
             }
-            ReusableView(title: "Musas").tabItem {
+            ListAndPlayerView(title: "Musas", reused: false).tabItem {
                 Text("Musas")
                 Image("Musas")
             }.tag(8)

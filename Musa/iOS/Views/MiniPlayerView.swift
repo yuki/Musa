@@ -1,5 +1,5 @@
 //
-//  MiniView.swift
+//  MiniPlayerView.swift
 //  iOS
 //
 //  Created by Rubén Gómez Olivencia on 27/07/2020.
@@ -7,25 +7,26 @@
 
 import SwiftUI
 
-struct MiniView: View {
+struct MiniPlayerView: View {
     var body: some View {
         
         HStack {
             Image("Cover")
                 .resizable()
-                .frame(width: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
+                .frame(width: 50, height: 50)
                 .cornerRadius(5)
             Text("Song Name")
             Spacer()
             Image("Play")
             Image("Next")
         }
+//        .padding(.all, 5)
     }
 }
 
-struct MiniView_Previews: PreviewProvider {
+struct MiniPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        MiniView()
+        MiniPlayerView()
             .previewLayout(.fixed(width: 300, height: 60.0))
     }
 }
