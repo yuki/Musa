@@ -6,21 +6,31 @@
 //
 
 import SwiftUI
+import MediaPlayer
 
 struct MiniPlayerView: View {
     var body: some View {
         
         HStack {
-            Image("Cover")
+            Image("cover")
                 .resizable()
                 .frame(width: 50, height: 50)
                 .cornerRadius(5)
             Text("Song Name")
             Spacer()
-            Image("Play")
-            Image("Next")
+            Button(action: {(
+                //Play song
+                Musa.default.playPauseSong()
+            )}) {
+                Image(systemName:"play.fill")
+            }
+            Button(action: {(
+                //Next song
+            )}) {
+                Image(systemName:"forward.fill")
+            }
         }
-//        .padding(.all, 5)
+        .padding(.all, 5)
     }
 }
 
@@ -28,5 +38,7 @@ struct MiniPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         MiniPlayerView()
             .previewLayout(.fixed(width: 300, height: 60.0))
+        MiniPlayerView()
+            .previewLayout(.fixed(width: 300, height: 60.0)).colorScheme(.dark)
     }
 }

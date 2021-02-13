@@ -22,5 +22,6 @@ struct ListAndPlayerView: View {
 struct ListAndPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         ListAndPlayerView(title: "title", reused: false)
+        ListAndPlayerView(title: "title", reused: false).colorScheme(.dark)
     }
 }

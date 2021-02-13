@@ -26,6 +26,7 @@ struct MusaView: View {
             Spacer()
         }
         .navigationBarTitle("Artist Title - Song name")
+        .statusBar(hidden: true)
     }
 }
 

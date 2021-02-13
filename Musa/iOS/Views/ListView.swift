@@ -29,6 +29,7 @@ struct ListView: View {
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView(title: "Title", reused: false)
+        ListView(title: "Title", reused: false).colorScheme(.dark)
     }
 }
 

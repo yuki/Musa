@@ -12,12 +12,10 @@
 		B606EFCD24CF222D0014E525 /* ListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFCC24CF222D0014E525 /* ListComponentView.swift */; };
 		B606EFCF24CF2BFA0014E525 /* MusaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFCE24CF2BFA0014E525 /* MusaView.swift */; };
 		B606EFD124CF30740014E525 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606EFD024CF30740014E525 /* MapView.swift */; };
+		B610983125D7D38C00FAFE2E /* Musa.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610983025D7D38C00FAFE2E /* Musa.swift */; };
+		B686C73B25D8535F001806B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B686C73A25D8535F001806B6 /* Assets.xcassets */; };
 		B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
-		B6AEA38424C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
 		B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37124C5E0B700776B48 /* MainView.swift */; };
-		B6AEA38624C5E0B800776B48 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37124C5E0B700776B48 /* MainView.swift */; };
-		B6AEA38724C5E0B800776B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AEA37224C5E0B800776B48 /* Assets.xcassets */; };
-		B6AEA38824C5E0B800776B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AEA37224C5E0B800776B48 /* Assets.xcassets */; };
 		B6AEA39324C5E3BD00776B48 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA39224C5E3BD00776B48 /* ListView.swift */; };
 		B6B42D4D24D09C51007C960E /* ListAndPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B42D4C24D09C51007C960E /* ListAndPlayerView.swift */; };
 /* End PBXBuildFile section */
@@ -28,27 +26,19 @@
 		B606EFCC24CF222D0014E525 /* ListComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComponentView.swift; sourceTree = "<group>"; };
 		B606EFCE24CF2BFA0014E525 /* MusaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusaView.swift; sourceTree = "<group>"; };
 		B606EFD024CF30740014E525 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B610982725D7CCDE00FAFE2E /* Musa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Musa.entitlements; sourceTree = "<group>"; };
+		B610983025D7D38C00FAFE2E /* Musa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musa.swift; sourceTree = "<group>"; };
+		B686C73A25D8535F001806B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6AEA37024C5E0B700776B48 /* MusaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusaApp.swift; sourceTree = "<group>"; };
 		B6AEA37124C5E0B700776B48 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		B6AEA37224C5E0B800776B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6AEA37724C5E0B800776B48 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AEA37A24C5E0B800776B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6AEA37F24C5E0B800776B48 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6AEA38124C5E0B800776B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6AEA38224C5E0B800776B48 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		B6AEA39224C5E3BD00776B48 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		B6B42D4C24D09C51007C960E /* ListAndPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAndPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B6AEA37424C5E0B800776B48 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B6AEA37C24C5E0B800776B48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,7 +53,6 @@
 			children = (
 				B6AEA36F24C5E0B700776B48 /* Shared */,
 				B6AEA37924C5E0B800776B48 /* iOS */,
-				B6AEA38024C5E0B800776B48 /* macOS */,
 				B6AEA37824C5E0B800776B48 /* Products */,
 				B6AEA39624C5F1A000776B48 /* Frameworks */,
 			);
@@ -74,7 +63,8 @@
 			children = (
 				B6AEA37024C5E0B700776B48 /* MusaApp.swift */,
 				B6AEA37124C5E0B700776B48 /* MainView.swift */,
-				B6AEA37224C5E0B800776B48 /* Assets.xcassets */,
+				B610983025D7D38C00FAFE2E /* Musa.swift */,
+				B686C73A25D8535F001806B6 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -83,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				B6AEA37724C5E0B800776B48 /* Musa.app */,
-				B6AEA37F24C5E0B800776B48 /* Musa.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,19 +80,11 @@
 		B6AEA37924C5E0B800776B48 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B610982725D7CCDE00FAFE2E /* Musa.entitlements */,
 				B6AEA39124C5E32900776B48 /* Views */,
 				B6AEA37A24C5E0B800776B48 /* Info.plist */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		B6AEA38024C5E0B800776B48 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				B6AEA38124C5E0B800776B48 /* Info.plist */,
-				B6AEA38224C5E0B800776B48 /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		B6AEA39124C5E32900776B48 /* Views */ = {
@@ -147,23 +128,6 @@
 			productReference = B6AEA37724C5E0B800776B48 /* Musa.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B6AEA37E24C5E0B800776B48 /* macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B6AEA38E24C5E0B800776B48 /* Build configuration list for PBXNativeTarget "macOS" */;
-			buildPhases = (
-				B6AEA37B24C5E0B800776B48 /* Sources */,
-				B6AEA37C24C5E0B800776B48 /* Frameworks */,
-				B6AEA37D24C5E0B800776B48 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = macOS;
-			productName = macOS;
-			productReference = B6AEA37F24C5E0B800776B48 /* Musa.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -171,12 +135,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					B6AEA37624C5E0B800776B48 = {
-						CreatedOnToolsVersion = 12.0;
-					};
-					B6AEA37E24C5E0B800776B48 = {
 						CreatedOnToolsVersion = 12.0;
 					};
 				};
@@ -195,7 +156,6 @@
 			projectRoot = "";
 			targets = (
 				B6AEA37624C5E0B800776B48 /* iOS */,
-				B6AEA37E24C5E0B800776B48 /* macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -205,15 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6AEA38724C5E0B800776B48 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B6AEA37D24C5E0B800776B48 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B6AEA38824C5E0B800776B48 /* Assets.xcassets in Resources */,
+				B686C73B25D8535F001806B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,17 +183,9 @@
 				B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */,
 				B6B42D4D24D09C51007C960E /* ListAndPlayerView.swift in Sources */,
 				B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */,
+				B610983125D7D38C00FAFE2E /* Musa.swift in Sources */,
 				B606EFCD24CF222D0014E525 /* ListComponentView.swift in Sources */,
 				B606EFC524CEDFFF0014E525 /* PlayerView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B6AEA37B24C5E0B800776B48 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B6AEA38624C5E0B800776B48 /* MainView.swift in Sources */,
-				B6AEA38424C5E0B800776B48 /* MusaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -352,6 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -364,6 +310,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/Musa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQ46EGSCJG;
 				ENABLE_PREVIEWS = YES;
@@ -386,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/Musa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQ46EGSCJG;
 				ENABLE_PREVIEWS = YES;
@@ -401,50 +349,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B6AEA38F24C5E0B800776B48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = yuki.Musa;
-				PRODUCT_NAME = Musa;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		B6AEA39024C5E0B800776B48 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = yuki.Musa;
-				PRODUCT_NAME = Musa;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -465,15 +369,6 @@
 			buildConfigurations = (
 				B6AEA38C24C5E0B800776B48 /* Debug */,
 				B6AEA38D24C5E0B800776B48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B6AEA38E24C5E0B800776B48 /* Build configuration list for PBXNativeTarget "macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B6AEA38F24C5E0B800776B48 /* Debug */,
-				B6AEA39024C5E0B800776B48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
