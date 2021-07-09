@@ -26,6 +26,6 @@ struct ListComponentView_Previews: PreviewProvider {
         ListComponentView()
             .previewLayout(.fixed(width: 300, height: 60.0))
         ListComponentView()
-            .previewLayout(.fixed(width: 300, height: 60.0)).colorScheme(.dark)
+            .previewLayout(.fixed(width: 300, height: 60.0)).preferredColorScheme(.dark)
     }
 }

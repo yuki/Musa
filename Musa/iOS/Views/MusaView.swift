@@ -33,5 +33,6 @@ struct MusaView: View {
 struct MusaView_Previews: PreviewProvider {
     static var previews: some View {
         MusaView()
+        MusaView().preferredColorScheme(.dark)
     }
 }
