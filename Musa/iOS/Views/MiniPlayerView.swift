@@ -16,8 +16,9 @@ struct MiniPlayerView: View {
                 .resizable()
                 .frame(width: 50, height: 50)
                 .cornerRadius(5)
-            Text("Song Name")
-            Spacer()
+            Text("Song Name asd qwe qwe qwe qwe qq weq weqwe ")
+                .lineLimit(1)
+                .frame(maxWidth:.infinity, alignment: .leading)
             Button(action: {(
                 //Play song
                 Musa.default.playPauseSong()
@@ -39,6 +40,7 @@ struct MiniPlayerView_Previews: PreviewProvider {
         MiniPlayerView()
             .previewLayout(.fixed(width: 300, height: 60.0))
         MiniPlayerView()
-            .previewLayout(.fixed(width: 300, height: 60.0)).colorScheme(.dark)
+            .preferredColorScheme(.dark)
+            .previewLayout(.fixed(width: 300, height: 60.0))
     }
 }
