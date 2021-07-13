@@ -13,13 +13,13 @@ struct PlayerView: View {
     var body: some View {
         VStack {
             VStack{
-                Image(systemName: "chevron.compact.down").font(.title).padding([.bottom],5)
                 Image("cover")
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(15)
             }
             .frame(maxWidth:.infinity, maxHeight:.infinity)
+            .padding([.top],25)
             
             VStack {
                 HStack{
@@ -42,11 +42,11 @@ struct PlayerView: View {
                 
                 HStack(spacing: 50.0){
                     Image(systemName: "backward.fill")
-                    Image(systemName: "play.fill")
+                    Image(systemName: "play.fill").font(.system(size: 50))
                     Image(systemName: "forward.fill")
                 }
                 .padding(.horizontal)
-                .font(.largeTitle)
+                .font(.system(size: 30))
                 .frame(maxWidth:.infinity, maxHeight:.infinity)
                 
                 HStack{
@@ -58,6 +58,7 @@ struct PlayerView: View {
                     )
                     Image(systemName: "speaker.wave.2.fill")
                 }
+                .foregroundColor(.gray)
 
                 HStack{
                     Image(systemName: "shuffle")
@@ -65,13 +66,32 @@ struct PlayerView: View {
                     Image(systemName: "repeat")
                 }
                 .padding(.top)
-                .font(.title)
+                .font(.title2)
             }
             .frame(maxWidth:.infinity, maxHeight:.infinity)
             .fixedSize(horizontal: false, vertical: false)
-        }
-        .statusBar(hidden: true)
+        }   	
         .padding(10.0)
+        .popupProgress(0.2)
+        .popupBarProgressViewStyle(.top)
+        .popupTitle("Song Title")
+        .popupImage(Image("cover").resizable())
+        .popupBarItems({
+            HStack(spacing: 20) {
+                Button(action: {
+//                    isPlaying.toggle()
+                }) {
+                    Image(systemName: true ? "pause.fill" : "play.fill")
+                }
+
+                Button(action: {
+                    print("Next")
+                }) {
+                    Image(systemName: "forward.fill")
+                }
+            }
+            .font(.system(size: 20))
+        })
     }
 }
 

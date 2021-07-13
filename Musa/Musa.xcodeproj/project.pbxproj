@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,23 @@
 		B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37024C5E0B700776B48 /* MusaApp.swift */; };
 		B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA37124C5E0B700776B48 /* MainView.swift */; };
 		B6AEA39324C5E3BD00776B48 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AEA39224C5E3BD00776B48 /* ListView.swift */; };
-		B6B42D4D24D09C51007C960E /* ListAndPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B42D4C24D09C51007C960E /* ListAndPlayerView.swift */; };
+		B6BC3FE526999A610086C5C2 /* LNPopupUI in Frameworks */ = {isa = PBXBuildFile; productRef = B6BC3FE426999A610086C5C2 /* LNPopupUI */; };
+		B6BC3FE626999A610086C5C2 /* LNPopupUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B6BC3FE426999A610086C5C2 /* LNPopupUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B6BC3FE726999A610086C5C2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B6BC3FE626999A610086C5C2 /* LNPopupUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B606EFC424CEDFFF0014E525 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -34,7 +49,6 @@
 		B6AEA37724C5E0B800776B48 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AEA37A24C5E0B800776B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6AEA39224C5E3BD00776B48 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		B6B42D4C24D09C51007C960E /* ListAndPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAndPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6BC3FE526999A610086C5C2 /* LNPopupUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +111,6 @@
 				B606EFC724CEF3060014E525 /* MiniPlayerView.swift */,
 				B606EFCE24CF2BFA0014E525 /* MusaView.swift */,
 				B606EFC424CEDFFF0014E525 /* PlayerView.swift */,
-				B6B42D4C24D09C51007C960E /* ListAndPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,12 +132,16 @@
 				B6AEA37324C5E0B800776B48 /* Sources */,
 				B6AEA37424C5E0B800776B48 /* Frameworks */,
 				B6AEA37524C5E0B800776B48 /* Resources */,
+				B6BC3FE726999A610086C5C2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				B6BC3FE426999A610086C5C2 /* LNPopupUI */,
+			);
 			productName = iOS;
 			productReference = B6AEA37724C5E0B800776B48 /* Musa.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +169,9 @@
 				Base,
 			);
 			mainGroup = B6AEA36A24C5E0B700776B48;
+			packageReferences = (
+				B6BC3FE326999A610086C5C2 /* XCRemoteSwiftPackageReference "LNPopupUI" */,
+			);
 			productRefGroup = B6AEA37824C5E0B800776B48 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -181,7 +202,6 @@
 				B606EFC824CEF3060014E525 /* MiniPlayerView.swift in Sources */,
 				B6AEA39324C5E3BD00776B48 /* ListView.swift in Sources */,
 				B6AEA38524C5E0B800776B48 /* MainView.swift in Sources */,
-				B6B42D4D24D09C51007C960E /* ListAndPlayerView.swift in Sources */,
 				B6AEA38324C5E0B800776B48 /* MusaApp.swift in Sources */,
 				B610983125D7D38C00FAFE2E /* Musa.swift in Sources */,
 				B606EFCD24CF222D0014E525 /* ListComponentView.swift in Sources */,
@@ -374,6 +394,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6BC3FE326999A610086C5C2 /* XCRemoteSwiftPackageReference "LNPopupUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LeoNatan/LNPopupUI";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.14;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6BC3FE426999A610086C5C2 /* LNPopupUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6BC3FE326999A610086C5C2 /* XCRemoteSwiftPackageReference "LNPopupUI" */;
+			productName = LNPopupUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6AEA36B24C5E0B700776B48 /* Project object */;
 }
