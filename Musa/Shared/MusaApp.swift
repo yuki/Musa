@@ -8,7 +8,6 @@
 import SwiftUI
 import MediaPlayer
 
-@available(macOS 11.0, *)
 @main
 struct MusaApp: App {
     var body: some Scene {

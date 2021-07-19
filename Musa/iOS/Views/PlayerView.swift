@@ -30,20 +30,29 @@ struct PlayerView: View {
                 .padding(.top)
                 VStack {
                     Text("Song Title")
+                        .fontWeight(.semibold)
                         .lineLimit(2)
-                        .font(.title)
+                        .font(.largeTitle)
                         .padding(.bottom)
                         .frame(maxWidth: .infinity)
                     Text("Artist")
+                        .font(.title2)
+                        .fontWeight(.medium)
                         .lineLimit(1)
                         .frame(maxWidth: .infinity)
                 }
                 .frame(maxWidth:.infinity, maxHeight:.infinity)
                 
                 HStack(spacing: 50.0){
-                    Image(systemName: "backward.fill")
-                    Image(systemName: "play.fill").font(.system(size: 50))
-                    Image(systemName: "forward.fill")
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Image(systemName: "backward.fill")
+                    }
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Image(systemName: true ? "pause.fill" : "play.fill").font(.system(size: 50))
+                    }
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Image(systemName: "forward.fill")
+                    }
                 }
                 .padding(.horizontal)
                 .font(.system(size: 30))
@@ -58,19 +67,22 @@ struct PlayerView: View {
                     )
                     Image(systemName: "speaker.wave.2.fill")
                 }
-                .foregroundColor(.gray)
 
                 HStack{
-                    Image(systemName: "shuffle")
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Image(systemName: "shuffle")
+                    }
                     Spacer()
-                    Image(systemName: "repeat")
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Image(systemName: "repeat")
+                    }
                 }
                 .padding(.top)
-                .font(.title2)
+                .font(.title)
             }
             .frame(maxWidth:.infinity, maxHeight:.infinity)
             .fixedSize(horizontal: false, vertical: false)
-        }   	
+        }
         .padding(10.0)
         .popupProgress(0.2)
         .popupBarProgressViewStyle(.top)

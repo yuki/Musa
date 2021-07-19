@@ -11,7 +11,8 @@ import MediaPlayer
 import LNPopupUI
 
 struct MainView: View {
-//    let tabs = ["Genres","Artists","Albums","Songs","Playlists","Compilations","Composers"]
+    let musa = Musa.default
+    
     let tabs = [
         ["Genres","guitars"],
         ["Artists","music.mic"],
@@ -25,21 +26,19 @@ struct MainView: View {
     @State var isPopupOpen = false
     
     var body: some View {
-        TabView(selection: .constant(1)) {
+        TabView() {
             ForEach(tabs,id: \.self) { tab in
-                ListView(title: "Title", reused: false).tabItem {
+                ListView(title: tab[0], reused: false, items: musa.query[tab[0]]!).tabItem {
                     Text(tab[0])
                     Image(systemName: tab[1])
-                }.tag(1)
+                }
             } // ForEach
-
-            ListView(title: "Title", reused: false).tabItem {
+            ListView(title: "Musas", reused: false, items: MPMediaQuery()).tabItem {
                 Text("Musas")
                 Image("Musas")
-            }.tag(8)
-//            let mediaItems = MPMediaQuery.songs()
+            }
         }
-        .popup(isBarPresented: $isBarPresented, isPopupOpen: $isPopupOpen, onOpen: { print("Opened") }, onClose: { print("Closed") }){
+        .popup(isBarPresented: $isBarPresented, isPopupOpen: $isPopupOpen){
             PlayerView()
         }
         .popupProgress(0.2)
@@ -47,7 +46,6 @@ struct MainView: View {
 //        .popupBarCustomView {
 //            MiniPlayerView()
 //        }
-        
     }
 }
 

@@ -6,26 +6,32 @@
 //
 
 import SwiftUI
+import MediaPlayer
 
 struct ListComponentView: View {
+    let song: MPMediaItem
+    let origin: String
+    
     var body: some View {
         HStack {
-            Image("cover")
-                .resizable()
-                .frame(width: 50, height: 50)
-                .cornerRadius(5)
-            Text("01")
-            Text("Song Name")
+            if (origin == "Songs"){
+                Image("cover")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(5)
+                Text("\(song.albumTrackNumber)")
+            }
+            Text(song.title ?? "Song name")
             Spacer()
-        }
+        }.previewLayout(.fixed(width: .infinity, height: 60))
     }
 }
 
 struct ListComponentView_Previews: PreviewProvider {
     static var previews: some View {
-        ListComponentView()
+        ListComponentView(song: MPMediaItem(),origin: "song")
             .previewLayout(.fixed(width: 300, height: 60.0))
-        ListComponentView()
+        ListComponentView(song: MPMediaItem(),origin: "song")
             .previewLayout(.fixed(width: 300, height: 60.0)).preferredColorScheme(.dark)
     }
 }
